@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="ChatServer" targetName="ChatServer" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2cb37144-543c-4f28-9d9a-2addf364d03d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/Application.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/Application.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CMakeCache.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CMakeFiles/3.13.2/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CMakeFiles/3.13.2/CMakeCXXCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CMakeFiles/3.13.2/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CMakeFiles/3.13.2/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CMakeFiles/3.13.2/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CMakeFiles/3.13.2/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CMakeFiles/3.13.2/CompilerIdC/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CMakeFiles/3.13.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CMakeFiles/3.13.2/CompilerIdCXX/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CMakeFiles/CMakeOutput.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CMakeFiles/Makefile.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CMakeFiles/Makefile2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CMakeFiles/clion-environment.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CMakeFiles/cmake.check_cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/Application.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/CXX.includecache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/CircularLineBuffer.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/Client.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/build.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/flags.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/main.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/vusocket.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CMakeFiles/feature_tests.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CMakeFiles/feature_tests.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CMakeFiles/feature_tests.cxx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CMakeFiles/progress.marks" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CircularLineBuffer.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/CircularLineBuffer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/Client.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/Client.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/cmake_install.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/cpp-chat-client" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/cpp-chat-client.cbp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/vusocket.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/vusocket.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/.idea/Chat-Server.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/ServerFunctionality.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/cmake-build-debug/CMakeCache.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/cmake-build-debug/CMakeFiles/3.13.2/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/cmake-build-debug/CMakeFiles/3.13.2/CMakeCXXCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/cmake-build-debug/CMakeFiles/3.13.2/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/cmake-build-debug/CMakeFiles/3.13.2/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/cmake-build-debug/CMakeFiles/3.13.2/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdC/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCXX/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/cmake-build-debug/CMakeFiles/ChatServer.dir/CXX.includecache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/cmake-build-debug/CMakeFiles/ChatServer.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/cmake-build-debug/CMakeFiles/ChatServer.dir/build.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/cmake-build-debug/CMakeFiles/ChatServer.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/cmake-build-debug/CMakeFiles/ChatServer.dir/depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/cmake-build-debug/CMakeFiles/ChatServer.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/cmake-build-debug/CMakeFiles/ChatServer.dir/flags.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/cmake-build-debug/CMakeFiles/ChatServer.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/cmake-build-debug/CMakeFiles/ChatServer.dir/main.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/cmake-build-debug/CMakeFiles/ChatServer.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/cmake-build-debug/CMakeFiles/cmake.check_cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/cmake-build-debug/CMakeFiles/feature_tests.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/cmake-build-debug/CMakeFiles/feature_tests.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/cmake-build-debug/CMakeFiles/feature_tests.cxx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/cmake-build-debug/ChatServer" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/cmake-build-debug/ChatServer.cbp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/cmake-build-debug/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/cmake-build-debug/cmake_install.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chat-Server-master/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/.idea/ChatServer.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/CMakeCache.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/CMakeFiles/3.13.2/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/CMakeFiles/3.13.2/CMakeCXXCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/CMakeFiles/3.13.2/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/CMakeFiles/3.13.2/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/CMakeFiles/3.13.2/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdC/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCXX/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/CMakeFiles/ChatServer.dir/CXX.includecache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/CMakeFiles/ChatServer.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/CMakeFiles/ChatServer.dir/build.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/CMakeFiles/ChatServer.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/CMakeFiles/ChatServer.dir/depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/CMakeFiles/ChatServer.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/CMakeFiles/ChatServer.dir/flags.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/CMakeFiles/ChatServer.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/CMakeFiles/ChatServer.dir/main.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/CMakeFiles/ChatServer.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/CMakeFiles/cmake.check_cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/CMakeFiles/feature_tests.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/CMakeFiles/feature_tests.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/CMakeFiles/feature_tests.cxx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/ChatServer" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/ChatServer.cbp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/cmake_install.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatServer/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MidtermExam180227.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MidtermExamSolutions180227.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MidtermSolutions170228.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/.idea/Networking.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/.vscode/c_cpp_properties.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/Application.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/Application.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CMakeCache.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CMakeFiles/3.13.2/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CMakeFiles/3.13.2/CMakeCXXCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CMakeFiles/3.13.2/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CMakeFiles/3.13.2/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CMakeFiles/3.13.2/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CMakeFiles/3.13.2/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CMakeFiles/3.13.2/CompilerIdC/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CMakeFiles/3.13.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CMakeFiles/3.13.2/CompilerIdCXX/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CMakeFiles/CMakeOutput.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CMakeFiles/Makefile.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CMakeFiles/Makefile2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CMakeFiles/clion-environment.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CMakeFiles/cmake.check_cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/Application.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/CXX.includecache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/CircularLineBuffer.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/Client.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/build.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/flags.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/main.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/vusocket.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CMakeFiles/feature_tests.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CMakeFiles/feature_tests.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CMakeFiles/feature_tests.cxx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CMakeFiles/progress.marks" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CircularLineBuffer.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/CircularLineBuffer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/Client.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/Client.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/cmake_install.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/cpp-chat-client" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/cpp-chat-client.cbp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/vusocket.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-4d77b402d4a161df9b9b2981d67c712ec73d4a99/cpp-chat-client/vusocket.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/.idea/Networking.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/.vscode/c_cpp_properties.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/Application.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/Application.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CMakeCache.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CMakeFiles/3.13.2/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CMakeFiles/3.13.2/CMakeCXXCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CMakeFiles/3.13.2/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CMakeFiles/3.13.2/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CMakeFiles/3.13.2/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CMakeFiles/3.13.2/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CMakeFiles/3.13.2/CompilerIdC/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CMakeFiles/3.13.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CMakeFiles/3.13.2/CompilerIdCXX/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CMakeFiles/CMakeOutput.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CMakeFiles/Makefile.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CMakeFiles/Makefile2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CMakeFiles/clion-environment.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CMakeFiles/cmake.check_cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/Application.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/CXX.includecache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/CircularLineBuffer.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/Client.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/build.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/flags.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/main.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/vusocket.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CMakeFiles/feature_tests.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CMakeFiles/feature_tests.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CMakeFiles/feature_tests.cxx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CMakeFiles/progress.marks" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CircularLineBuffer.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/CircularLineBuffer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/Client.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/Client.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/cmake_install.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/cpp-chat-client" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/cpp-chat-client.cbp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/vusocket.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-Assign3/cpp-chat-client/vusocket.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/.idea/Networking.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/.vscode/c_cpp_properties.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/Application.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/Application.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CMakeCache.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CMakeFiles/3.13.2/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CMakeFiles/3.13.2/CMakeCXXCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CMakeFiles/3.13.2/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CMakeFiles/3.13.2/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CMakeFiles/3.13.2/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CMakeFiles/3.13.2/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CMakeFiles/3.13.2/CompilerIdC/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CMakeFiles/3.13.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CMakeFiles/3.13.2/CompilerIdCXX/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CMakeFiles/CMakeOutput.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CMakeFiles/Makefile.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CMakeFiles/Makefile2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CMakeFiles/clion-environment.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CMakeFiles/cmake.check_cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/Application.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/CXX.includecache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/CircularLineBuffer.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/Client.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/build.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/flags.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/main.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/vusocket.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CMakeFiles/feature_tests.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CMakeFiles/feature_tests.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CMakeFiles/feature_tests.cxx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CMakeFiles/progress.marks" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CircularLineBuffer.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/CircularLineBuffer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/Client.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/Client.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/cmake_install.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/cpp-chat-client" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/cpp-chat-client.cbp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/vusocket.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-master/cpp-chat-client/vusocket.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/.idea/Networking.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/.vscode/c_cpp_properties.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/Application.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/Application.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CMakeCache.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CMakeFiles/3.13.2/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CMakeFiles/3.13.2/CMakeCXXCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CMakeFiles/3.13.2/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CMakeFiles/3.13.2/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CMakeFiles/3.13.2/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CMakeFiles/3.13.2/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CMakeFiles/3.13.2/CompilerIdC/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CMakeFiles/3.13.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CMakeFiles/3.13.2/CompilerIdCXX/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CMakeFiles/CMakeOutput.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CMakeFiles/Makefile.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CMakeFiles/Makefile2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CMakeFiles/clion-environment.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CMakeFiles/cmake.check_cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/Application.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/CXX.includecache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/CircularLineBuffer.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/Client.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/build.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/flags.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/main.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/vusocket.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CMakeFiles/feature_tests.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CMakeFiles/feature_tests.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CMakeFiles/feature_tests.cxx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CMakeFiles/progress.marks" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CircularLineBuffer.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/CircularLineBuffer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/Client.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/Client.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/cmake_install.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/cpp-chat-client" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/cpp-chat-client.cbp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/vusocket.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Networking-r/cpp-chat-client/vusocket.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Screen Shot 2019-02-18 at 9.24.05 AM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Screen Shot 2019-02-19 at 8.18.25 AM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Screen Shot 2019-02-25 at 7.36.48 PM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server Chat multiple /.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server Chat multiple /scratch.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VU/Period 1/Computer Programming /C++ practice /Learning C++" beforeDir="false" afterPath="$PROJECT_DIR$/../VU/Period 1/Computer Programming /C++ practice /Learning C++" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VUCourseWork" beforeDir="false" afterPath="$PROJECT_DIR$/../VUCourseWork" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WhatsApp Image 2019-02-25 at 5.29.06 PM.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WhatsApp Image 2019-02-25 at 5.29.07 PM(1).jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WhatsApp Image 2019-02-25 at 5.29.07 PM.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../midterm/WhatsApp Image 2019-02-24 at 5.02.14 PM(1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../midterm/WhatsApp Image 2019-02-24 at 5.02.14 PM(2).jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../midterm/WhatsApp Image 2019-02-24 at 5.02.14 PM(3).jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../midterm/WhatsApp Image 2019-02-24 at 5.02.14 PM.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../midterm/WhatsApp Image 2019-02-24 at 6.24.53 PM.jpeg" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/Chat-Server/cmake-build-debug/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Chat-Server/main.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Chat-Server/ServerFunctionality.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="40" column="36" lean-forward="true" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Chat-Server/ServerFunctionality.h" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="width" value="1280" />
+    <option name="height" value="800" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ChatServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GAME" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChatServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GAME" type="462c0819:PsiDirectoryNode" />
+              <item name="Chat-Client" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChatServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GAME" type="462c0819:PsiDirectoryNode" />
+              <item name="Chat-Server" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="ChatServer" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ChatServer" TARGET_NAME="ChatServer" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ChatServer" RUN_TARGET_NAME="ChatServer">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2cb37144-543c-4f28-9d9a-2addf364d03d" name="Default Changelist" comment="" />
+      <created>1551884340110</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1551884340110</updated>
+      <workItem from="1551884343564" duration="384000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="384000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1280" height="715" extended-state="6" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24959612" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="CMake" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Chat-Server/ServerFunctionality.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="40" column="36" lean-forward="true" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Chat-Server/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
