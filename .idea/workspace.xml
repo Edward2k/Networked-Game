@@ -2,7 +2,8 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="GAME" targetName="GAME" />
+      <config projectName="GAME" targetName="CLIENT" />
+      <config projectName="GAME" targetName="SERVER" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -12,6 +13,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2cb37144-543c-4f28-9d9a-2addf364d03d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CLIENT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CLIENT.dir/CXX.includecache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CLIENT.dir/DependInfo.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CLIENT.dir/Game-Client/Application.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CLIENT.dir/Game-Client/CircularLineBuffer.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CLIENT.dir/Game-Client/Client.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CLIENT.dir/Game-Client/main.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CLIENT.dir/Game-Client/vusocket.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CLIENT.dir/build.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CLIENT.dir/cmake_clean.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CLIENT.dir/depend.internal" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CLIENT.dir/depend.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CLIENT.dir/link.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GAME.dir/CXX.includecache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GAME.dir/DependInfo.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GAME.dir/Game-Client/Application.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GAME.dir/Game-Client/CircularLineBuffer.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GAME.dir/Game-Client/Client.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GAME.dir/Game-Client/main.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GAME.dir/Game-Client/vusocket.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GAME.dir/Game-Server/main_server.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GAME.dir/build.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GAME.dir/cmake_clean.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GAME.dir/depend.internal" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GAME.dir/depend.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GAME.dir/link.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERVER.dir/CXX.includecache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERVER.dir/Game-Server/main_server.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERVER.dir/build.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERVER.dir/cmake_clean.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERVER.dir/depend.internal" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERVER.dir/depend.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERVER.dir/progress.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/GAME.cbp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/SERVER" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Chat-Client-master/README.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Chat-Client-master/cpp-chat-client/.vscode/settings.json" beforeDir="false" />
@@ -162,24 +205,24 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/.idea/.name" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/.idea/Chat-Client.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Client/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Client/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Game-Server/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/.idea/misc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Client/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Client/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Game-Server/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/.idea/workspace.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeCache.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/3.13.2/CMakeCCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/3.13.2/CMakeCXXCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/3.13.2/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/3.13.2/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/3.13.2/CMakeSystem.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdC/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCXX/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/3.13.2/CMakeCCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.13.2/CMakeCCompiler.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/3.13.2/CMakeCXXCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.13.2/CMakeCXXCompiler.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/3.13.2/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.13.2/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/3.13.2/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.13.2/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/3.13.2/CMakeSystem.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.13.2/CMakeSystem.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdC/CMakeCCompilerId.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdC/a.out" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdC/a.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCXX/a.out" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCXX/a.out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/Chat_Client.dir/CXX.includecache" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/Chat_Client.dir/DependInfo.cmake" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/Chat_Client.dir/build.make" beforeDir="false" />
@@ -191,26 +234,26 @@
       <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/Chat_Client.dir/cpp-chat-client/vusocket.cpp.o" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/Chat_Client.dir/depend.internal" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/Chat_Client.dir/depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/Chat_Client.dir/flags.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/Chat_Client.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERVER.dir/flags.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/Chat_Client.dir/link.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/Chat_Client.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/Chat_Client.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CLIENT.dir/progress.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/cmake.check_cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/feature_tests.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/feature_tests.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/feature_tests.cxx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/cmake.check_cache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cmake.check_cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/feature_tests.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/feature_tests.c" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/feature_tests.cxx" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.cxx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/Chat_Client" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/Chat_Client.cbp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/cmake_install.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/.vscode/settings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/Application.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/Application.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Client/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Game-Client/.vscode/settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/Application.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Game-Client/Application.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/Application.h" beforeDir="false" afterPath="$PROJECT_DIR$/Game-Client/Application.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/CMakeCache.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/CMakeFiles/3.13.2/CMakeCCompiler.cmake" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/CMakeFiles/3.13.2/CMakeCXXCompiler.cmake" beforeDir="false" />
@@ -224,7 +267,7 @@
       <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/CMakeFiles/CMakeOutput.log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/CMakeFiles/Makefile.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/CMakeFiles/Makefile2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/CMakeFiles/clion-environment.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/CMakeFiles/cmake.check_cache" beforeDir="false" />
@@ -237,38 +280,37 @@
       <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/cmake_clean.cmake" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/depend.internal" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/flags.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CLIENT.dir/flags.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/link.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/main.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GAME.dir/progress.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/CMakeFiles/cpp-chat-client.dir/vusocket.cpp.o" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/CMakeFiles/feature_tests.bin" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/CMakeFiles/feature_tests.c" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/CMakeFiles/feature_tests.cxx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/CMakeFiles/progress.marks" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/CircularLineBuffer.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/CircularLineBuffer.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/Client.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/Client.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/CircularLineBuffer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Game-Client/CircularLineBuffer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/CircularLineBuffer.h" beforeDir="false" afterPath="$PROJECT_DIR$/Game-Client/CircularLineBuffer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/Client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Game-Client/Client.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/Client.h" beforeDir="false" afterPath="$PROJECT_DIR$/Game-Client/Client.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/Makefile" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/cmake_install.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/cpp-chat-client" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/cpp-chat-client.cbp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/main.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/vusocket.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/vusocket.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/.idea/Chat-Server.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/cpp-chat-client.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/Game-Client/cpp-chat-client.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Game-Client/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/vusocket.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Game-Client/vusocket.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Client/cpp-chat-client/vusocket.h" beforeDir="false" afterPath="$PROJECT_DIR$/Game-Client/vusocket.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/Game-Server/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/.idea/Chat-Server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Game-Server/.idea/Chat-Server.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Server/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Game-Server/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Game-Server/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Server/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Game-Server/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Server/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/ServerFunctionality.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Game-Server/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/ServerFunctionality.h" beforeDir="false" afterPath="$PROJECT_DIR$/Game-Server/ServerFunctionality.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Server/cmake-build-debug/CMakeCache.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Server/cmake-build-debug/CMakeFiles/3.13.2/CMakeCCompiler.cmake" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Server/cmake-build-debug/CMakeFiles/3.13.2/CMakeCXXCompiler.cmake" beforeDir="false" />
@@ -279,14 +321,14 @@
       <change beforePath="$PROJECT_DIR$/Chat-Server/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdC/a.out" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Server/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Server/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCXX/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Server/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/cmake-build-debug/CMakeFiles/ChatServer.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/cmake-build-debug/CMakeFiles/ChatServer.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERVER.dir/DependInfo.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Server/cmake-build-debug/CMakeFiles/ChatServer.dir/build.make" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Server/cmake-build-debug/CMakeFiles/ChatServer.dir/cmake_clean.cmake" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Server/cmake-build-debug/CMakeFiles/ChatServer.dir/depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/cmake-build-debug/CMakeFiles/ChatServer.dir/flags.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/cmake-build-debug/CMakeFiles/ChatServer.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/cmake-build-debug/CMakeFiles/ChatServer.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GAME.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/cmake-build-debug/CMakeFiles/ChatServer.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERVER.dir/link.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Server/cmake-build-debug/CMakeFiles/ChatServer.dir/progress.make" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Server/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Server/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" />
@@ -298,11 +340,12 @@
       <change beforePath="$PROJECT_DIR$/Chat-Server/cmake-build-debug/CMakeFiles/feature_tests.c" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Server/cmake-build-debug/CMakeFiles/feature_tests.cxx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Server/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/cmake-build-debug/ChatServer" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Server/cmake-build-debug/ChatServer.cbp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Server/cmake-build-debug/Makefile" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat-Server/cmake-build-debug/cmake_install.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Game-Server/main_server.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game-Client/cpp-chat-client" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game-Server/ChatServer" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../MidtermExam180227.pdf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../MidtermExamSolutions180227.pdf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../MidtermSolutions170228.pdf" beforeDir="false" />
@@ -576,8 +619,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
+            <state relative-caret-position="135">
+              <caret line="9" column="35" lean-forward="true" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -643,12 +686,21 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="GAME" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="GAME" TARGET_NAME="GAME" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="GAME" RUN_TARGET_NAME="GAME">
+  <component name="RunManager" selected="Application.CLIENT">
+    <configuration name="CLIENT" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="GAME" TARGET_NAME="CLIENT" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="GAME" RUN_TARGET_NAME="CLIENT">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SERVER" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="GAME" TARGET_NAME="SERVER" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="GAME" RUN_TARGET_NAME="SERVER">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.CLIENT" />
+      <item itemvalue="Application.SERVER" />
+    </list>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -662,29 +714,28 @@
       <updated>1551884340110</updated>
       <workItem from="1551884343564" duration="384000" />
       <workItem from="1551953514352" duration="543000" />
-      <workItem from="1551956952510" duration="219000" />
+      <workItem from="1551956952510" duration="599000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1146000" />
+    <option name="totallyTimeSpent" value="1526000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2536349" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2536349" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32876712" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.28082192" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.28082192" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.32876712" />
@@ -701,10 +752,13 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Chat-Server/main.cpp" />
     <entry file="file://$PROJECT_DIR$/Chat-Server/ServerFunctionality.h" />
+    <entry file="file://$PROJECT_DIR$/cpp-chat-client">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="135">
+          <caret line="9" column="35" lean-forward="true" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
         </state>
       </provider>
     </entry>
