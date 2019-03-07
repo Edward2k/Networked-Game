@@ -1,0 +1,4 @@
+/Users/eduardolira/Desktop/GAME/cmake-build-debug/CMakeFiles/SERVER.dir
+/Users/eduardolira/Desktop/GAME/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/eduardolira/Desktop/GAME/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/eduardolira/Desktop/GAME/cmake-build-debug/CMakeFiles/CLIENT.dir

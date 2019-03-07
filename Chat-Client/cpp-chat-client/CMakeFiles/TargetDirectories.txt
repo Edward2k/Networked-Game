@@ -1,3 +1,0 @@
-/Users/eduardolira/Desktop/Chat-Client/cpp-chat-client/CMakeFiles/rebuild_cache.dir
-/Users/eduardolira/Desktop/Chat-Client/cpp-chat-client/CMakeFiles/edit_cache.dir
-/Users/eduardolira/Desktop/Chat-Client/cpp-chat-client/CMakeFiles/cpp-chat-client.dir
