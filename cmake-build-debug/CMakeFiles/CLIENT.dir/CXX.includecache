@@ -18,26 +18,6 @@ mutex
 iostream
 -
 
-/Users/eduardolira/Desktop/GAME/Game-Client/Client.cpp
-Client.h
-/Users/eduardolira/Desktop/GAME/Game-Client/Client.h
-stdio.h
--
-stdlib.h
--
-sys/types.h
--
-sys/socket.h
--
-netdb.h
--
-string
--
-iostream
--
-sstream
--
-
 /Users/eduardolira/Desktop/GAME/Game-Client/Client.h
 pthread.h
 -
@@ -51,6 +31,12 @@ vusocket.h
 /Users/eduardolira/Desktop/GAME/Game-Client/vusocket.h
 CircularLineBuffer.h
 /Users/eduardolira/Desktop/GAME/Game-Client/CircularLineBuffer.h
+
+/Users/eduardolira/Desktop/GAME/Game-Client/main.cpp
+iostream
+-
+Client.h
+/Users/eduardolira/Desktop/GAME/Game-Client/Client.h
 
 /Users/eduardolira/Desktop/GAME/Game-Client/vusocket.h
 iostream

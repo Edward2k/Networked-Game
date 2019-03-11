@@ -207,7 +207,11 @@ void Client::createSocketAndLogIn() {
     freeaddrinfo(infoptr);//free memory space from addrinfo struct
 
    /*____________________Chat session succefully created.________________________*/
-    cout << "[SYSTEM] : Welcome to the chat server! you can exit at anytime by typing '!quit'." << endl;
+    cout << "[SYSTEM] : Welcome to the chat server! you can exit at anytime by typing '!quit'." << endl
+        << "\t\t - Ask who is logged in using !who" << endl
+        << "\t\t - Send message in the form @<username> <message>" << endl
+        << "\t\t - Use a test-timer typing !test" << endl;
+
     //now tick() will run.
 
 }
