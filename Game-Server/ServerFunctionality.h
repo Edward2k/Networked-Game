@@ -19,6 +19,7 @@
 #include <iostream> //for IO. DO NOT USE namespace std because it conflicts with names of socket programming [bind()].
 
 #include <chrono>
+#include <vector>
 
 #define PORT 7070
 #define BUFFERSIZE 4096 //4kb
@@ -36,24 +37,61 @@ void runServer();
 
 int createSocket();
 
-void connectAndLogin();
-
 int forwardMessage(); //sends message from 1 client to another. returns 0 on success. <0 on failure.
+
+void connectAndLogin();
 
 std::string createLoggedUserString();
 
-/*
- * NOW IT IS TIME TO IMPLEMENT SOME CHEEKY TIMING
- */
+/*******************************************************************************************
+ * NOW IT IS TIME TO IMPLEMENT SOME CHEEKY TIMING FOR TESTING HOW IT WORKS
+ *******************************************************************************************/
 
-int time_sock[MAXCLIENTS];
+class timeClients {
+private:
+    std::chrono::time_point<std::chrono::high_resolution_clock> start; //start time stamp
 
-void timeReply() { //Time how long it takes to reply
-    auto start = std::chrono::high_resolution_clock::now();
-    read( sd , buffer, BUFFERSIZE);
-    auto diff = std::chrono::high_resolution_clock::now() - start;
-    auto t1 = std::chrono::duration_cast<std::chrono::milliseconds>(diff);
-    std::cout << "Time for reply was: " << t1.count() << std::endl;
-    toSend = "Time taken to reply was : " + std::to_string(t1.count()) + '\n';
-    send(sd, toSend.data(), toSend.length(), 0);
+    //TODO:: Do we need a destructor?
+
+public:
+    int client; //the client
+
+    timeClients(int timeClient) {
+        client = timeClient;
+        start = std::chrono::high_resolution_clock::now();
+    }
+
+    timeClients() { //empty constructor
+        client = 0;
+        start = std::chrono::high_resolution_clock::now();
+    }
+
+    ~timeClients(){} //TODO : Do we need destructor?
+
+    int getClient() {
+        return client;
+    }
+
+    std::string getTimeStr() {  //Return time string
+        auto diff = std::chrono::high_resolution_clock::now() - start;
+        auto t1 = std::chrono::duration_cast<std::chrono::milliseconds>(diff);
+        std::cout << "Time for reply was: " << t1.count() << std::endl;
+        return "Time taken to reply was : " + std::to_string(t1.count()) + "ms." + '\n';
+    }
+
+}; //Class for timing replies (TEST for timing)
+
+std::vector<timeClients> replyTimers(MAXCLIENTS);
+//
+void startTimeReply(int i) { //Time how long it takes to reply
+    timeClients timer(sd); //object timer for the client
+    replyTimers[i] = timer;
 }
+
+/*******************************************************************************************
+ * NOW IT IS TIME TO IMPLEMENT LOBBIES AND SUCH. THE REAL STUFF
+ *******************************************************************************************/
+
+// TODO : Create lobby class or some way to manage several people together. Use same time-Stamping
+//        method to find the time.
+// TODO : Ask if we need multiple lobbies.

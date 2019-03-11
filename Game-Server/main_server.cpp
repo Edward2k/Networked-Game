@@ -249,14 +249,18 @@ void runServer() {
                 std::cout << "ACTIVITY ON socket location : " << i << std::endl;
 //TODO: Here you can decide what to do with incomming data.
                 //check if activity is for closing the socket
-                if ((valread = read( sd , buffer, BUFFERSIZE)) == 0) {
+                int valread = read( sd , buffer, BUFFERSIZE); //check to see. 0 means close socket.
+                std::string inStr = buffer; //convert to string for easy branching below.
+                std::cout << "WE RECIEVED THE MESS : " << inStr << std::endl;
+
+/*Close sock*/  if (valread == 0) {
                     //Close the socket and mark as 0 in list for reuse
                     std::cout<< "[CLOSE SOCKET] : " << i << std::endl;
                     client_name[i] = "";//erase the name.
                     loggedInUsers--; //decrement counter.
                     close(sd);
                     client_sock[i] = 0;
-                } else if (buffer[0] == 'S'){ //There is a message to send.
+/*Send mssg*/   } else if (buffer[0] == 'S'){
                     std::cout << "Message to send!\n";
                     if (forwardMessage(i) == 0) {
                         toSend = "SEND-OK\n";
@@ -264,29 +268,27 @@ void runServer() {
                         toSend = "UNKNOWN\n";
                     }
                     send(sd, toSend.data(), toSend.length(), 0);
-                } else if (buffer[0] == 'W') { //WHO
+/*WHO*/         } else if (buffer[0] == 'W') {
                     toSend = createLoggedUserString(); //Create the string
                     send(sd, toSend.data(), toSend.length(), 0);
-                } else if(buffer[0] == 'c') { //TODO : TIMING REPLY
-
+/*nd tst_time*/ } else if(sd == replyTimers[i].getClient() && inStr == "!time\n") {
+                    toSend = replyTimers[i].getTimeStr();
+                    timeClients emptyContainer; //creates empty object
+                    replyTimers[i] = emptyContainer;
+/*start test*/      send(sd, toSend.data(), toSend.length(), 0);
+/*time      */  } else if (0 == replyTimers[i].getClient() && inStr == "!time\n") { //check if empty
                     std::cout << "Starting the timer \n";
-                    toSend = "Timing how long it takes you to reply! \n";
+                    toSend = "Timing how long it takes you to reply! Reply with \"!time\" to get time\n";
                     send(sd, toSend.data(), toSend.length(), 0);
-                    timeReply();
-
-                }
-
-
-
-
-
-
-                else { //BAD request.
+                    startTimeReply(i);
+/*BAD RQST*/    } else { //BAD request.
                     toSend = "BAD-RQST-BODY\n"; //bad body response
                     send(sd, toSend.data(), toSend.length(), 0);
                 }
+                //TODO : Add lobby functionality and game stuff. above else ofc.
             }
         }
+
     }//End while loop
 
 } //close function
