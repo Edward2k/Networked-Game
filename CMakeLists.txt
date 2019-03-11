@@ -6,6 +6,11 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories(Game-Client)
 include_directories(Game-Server)
 
+ADD_DEFINITIONS(
+        -std=c++11 # Or -std=c++0x
+        # Other flags
+)
+
 add_executable(CLIENT
         Game-Client/Application.cpp
         Game-Client/Application.h

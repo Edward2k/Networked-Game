@@ -37,8 +37,7 @@ void Client::tick() {
 
     if (socketBuffer.hasLine()) {
         theLine = socketBuffer.readLine();
-        std::cout<<'\n';
-
+//cout << "We recieved : " << theLine << endl;
         if (theLine[0] == 'W') { //for WHO-OK
             int numUsers = 0; //holds number of users.
             int recLength = theLine.size()+1;

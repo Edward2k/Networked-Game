@@ -18,10 +18,10 @@
 #include <sys/time.h> //Using this for the FD commands.
 #include <iostream> //for IO. DO NOT USE namespace std because it conflicts with names of socket programming [bind()].
 
-
+#include <chrono>
 
 #define PORT 7070
-#define BUFFERSIZE 1024 //1kb
+#define BUFFERSIZE 4096 //4kb
 #define MAXCLIENTS 5
 
 
@@ -41,3 +41,19 @@ void connectAndLogin();
 int forwardMessage(); //sends message from 1 client to another. returns 0 on success. <0 on failure.
 
 std::string createLoggedUserString();
+
+/*
+ * NOW IT IS TIME TO IMPLEMENT SOME CHEEKY TIMING
+ */
+
+int time_sock[MAXCLIENTS];
+
+void timeReply() { //Time how long it takes to reply
+    auto start = std::chrono::high_resolution_clock::now();
+    read( sd , buffer, BUFFERSIZE);
+    auto diff = std::chrono::high_resolution_clock::now() - start;
+    auto t1 = std::chrono::duration_cast<std::chrono::milliseconds>(diff);
+    std::cout << "Time for reply was: " << t1.count() << std::endl;
+    toSend = "Time taken to reply was : " + std::to_string(t1.count()) + '\n';
+    send(sd, toSend.data(), toSend.length(), 0);
+}

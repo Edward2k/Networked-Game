@@ -29,6 +29,8 @@ sys/time.h
 -
 iostream
 -
+chrono
+-
 
 /Users/eduardolira/Desktop/GAME/Game-Server/main_server.cpp
 stdio.h
@@ -54,6 +56,8 @@ sys/time.h
 iostream
 -
 stdexcept
+-
+chrono
 -
 ServerFunctionality.h
 /Users/eduardolira/Desktop/GAME/Game-Server/ServerFunctionality.h

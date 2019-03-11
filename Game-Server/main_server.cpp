@@ -11,6 +11,7 @@
 #include <iostream> //for IO. DO NOT USE namespace std because it conflicts with names of socket programming [bind()].
 #include <stdexcept> //for error handling
 
+#include <chrono>
 #include "ServerFunctionality.h"
 
 
@@ -248,7 +249,7 @@ void runServer() {
                 std::cout << "ACTIVITY ON socket location : " << i << std::endl;
 //TODO: Here you can decide what to do with incomming data.
                 //check if activity is for closing the socket
-                if ((valread = read( sd , buffer, 1024)) == 0) {
+                if ((valread = read( sd , buffer, BUFFERSIZE)) == 0) {
                     //Close the socket and mark as 0 in list for reuse
                     std::cout<< "[CLOSE SOCKET] : " << i << std::endl;
                     client_name[i] = "";//erase the name.
@@ -266,7 +267,21 @@ void runServer() {
                 } else if (buffer[0] == 'W') { //WHO
                     toSend = createLoggedUserString(); //Create the string
                     send(sd, toSend.data(), toSend.length(), 0);
-                } else { //BAD request.
+                } else if(buffer[0] == 'c') { //TODO : TIMING REPLY
+
+                    std::cout << "Starting the timer \n";
+                    toSend = "Timing how long it takes you to reply! \n";
+                    send(sd, toSend.data(), toSend.length(), 0);
+                    timeReply();
+
+                }
+
+
+
+
+
+
+                else { //BAD request.
                     toSend = "BAD-RQST-BODY\n"; //bad body response
                     send(sd, toSend.data(), toSend.length(), 0);
                 }
