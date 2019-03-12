@@ -22,17 +22,16 @@
 #include <vector>
 
 #define PORT 7070
-#define BUFFERSIZE 4096 //4kb
+#define BUFFERSIZE 16384 //16kb //TODO : Use circular buffer
 #define MAXCLIENTS 20
 #define MAXLOBBYSIZE 5
 #define MAXLOBBIES 4
 
 struct sockaddr_in address; //struct for machine readable address.
 fd_set readfds; //set of socket descriptors.
-int master_sock, addrlen, valread, sd, max_sd, check, i, client_sock[MAXCLIENTS], loggedInUsers;
+int master_sock, addrlen, valread, sd, max_sd, check, i, loggedInUsers;
 std::string recieved, toSend; //IO to/from clients
 char buffer[BUFFERSIZE]; //buffer for incoming messages.
-std::string client_name[MAXCLIENTS]; //list of names
 
 void runServer();
 
@@ -43,6 +42,67 @@ int forwardMessage(); //sends message from 1 client to another. returns 0 on suc
 void connectAndLogin();
 
 std::string createLoggedUserString();
+
+/*******************************************************************************************
+ * Define the client class for easy managment of lobbies and names etc.
+ *******************************************************************************************/
+
+class client {
+private:
+    int clientSock; //socket of the client
+    std::string clientName; //name
+    int listOfLobbiesIndex;
+    bool inLobby; //is he in a lobby
+
+public:
+
+    client() { //default constructor
+        clientSock = 0;
+        clientName = "";
+        listOfLobbiesIndex = -1;
+        inLobby = false;
+    }
+
+    client(int clientSocket, std::string nameOfClient) { //list of clients
+        clientSock = clientSocket;
+        clientName = nameOfClient;
+        listOfLobbiesIndex = -1;
+        inLobby = false;
+    }
+
+    std::string getName() {
+        return clientName;
+    }
+    int getSock() {
+        return clientSock;
+    }
+
+    void eraseClient() {
+        clientSock = 0;
+        clientName = "";
+        listOfLobbiesIndex = -1;
+        inLobby = false;
+    }
+
+    int getLobbyIndex() {
+        if (inLobby == true) {
+            return listOfLobbiesIndex;
+        }
+        return -1; //not in lobby
+    }
+
+    int joinLobbyIndex(int a) {
+        listOfLobbiesIndex = a;
+        inLobby = true;
+    }
+
+    void exitLobby() {
+        listOfLobbiesIndex = -1;
+        inLobby = false;
+    }
+
+    bool isInLobby() {return inLobby;}
+};
 
 /*******************************************************************************************
  * NOW IT IS TIME TO IMPLEMENT SOME CHEEKY TIMING FOR TESTING HOW IT WORKS
@@ -102,85 +162,146 @@ class lobbies {
 private:
     std::chrono::time_point<std::chrono::high_resolution_clock> startGame; //start time stamp
     std::string name;
-    int leader; //matches leader
-    int l_clients[MAXLOBBYSIZE];
-    std::string l_clients_name[MAXLOBBYSIZE];
+    client leader; //matches leader
+    client l_clients[MAXLOBBYSIZE];
     int scoreBoard[MAXLOBBYSIZE];
     int usersInLobby;
     bool inGame; //0 for no, 1 for yes
 public:
 
-    lobbies(int client_leader, std::string leaderName, std::string lobbyName) {
+    lobbies(client masterClient, std::string lobbyName) {
         name = lobbyName; //Set the lobby name
-        l_clients[0] = client_leader;
-        l_clients_name[0] = leaderName;
-        leader = client_leader;
+        leader = masterClient;
+        l_clients[0] = leader;
         usersInLobby = 1;
         scoreBoard[0] = 0;
         inGame = 0;
 
         for (int i = 1; i < MAXLOBBYSIZE; i++) {
-            l_clients_name[i] = "";
-            l_clients[i] = 0; //set sockets to 0
+            l_clients[i].eraseClient(); //Set to empty objects
         }
     } //lobby constructor
 
     lobbies() {
         name = ""; //Set the lobby name
-        l_clients[0] = 0;
-        l_clients_name[0] = "";
-        leader = 0;
+        client emptyContainer;
+        leader = emptyContainer;
         usersInLobby = 0;
         scoreBoard[0] = 0;
         inGame = 0;
     }   //default constructor
 
     bool spaceToJoin() {
-        return usersInLobby < MAXLOBBYSIZE; //while not max space //TODO : not working right
+        return usersInLobby < MAXLOBBYSIZE; //while not max space
     }
 
-    bool joinLobby(int client, std::string clientName) {
+    bool joinLobby(client addClient) {
         if (!spaceToJoin()) {
             std::cout << "There is no space" <<std::endl;
             return false;
         }
-        for (int i = 0; i <= MAXLOBBYSIZE; i++) {
-            if (l_clients[i] == 0) {
-                l_clients[i] = client; //add client
-                l_clients_name[i] = clientName;
+        for (int i = 0; i < MAXLOBBYSIZE; i++) {
+            if (l_clients[i].getSock() == 0) {
+                l_clients[i] = addClient; //add client
                 usersInLobby++;
                 toSend = "Welcome to lobby '" + name + "'!\n";
-                send(client, toSend.data(), toSend.length(), 0); //send welcome message
+                send(addClient.getSock(), toSend.data(), toSend.length(), 0); //send welcome message
+                sendMessage(addClient.getSock(), (addClient.getName() + " has joined the lobby.\n"));
                 return true;
             }
         }
     }
 
     void sendLobbyList(int client) { //sends to requested user who is in lobby
-        toSend = "In the lobby we have: ";
+        toSend = "In the lobby we have: ";  //TODO : finsih implementing this
         for (int i =0 ; i < MAXLOBBYSIZE; i++) {
-            if (l_clients_name[i] != "") {
-                toSend += l_clients_name[i] + ", ";
+            if (l_clients[i].getName() != "") {
+                toSend += l_clients[i].getName() + ", ";
             }
         }
     }
 
-    int sendMessage(int send_client, std::string toSend) { //TODO : fix formatting
-        int a = 0; //no failure
-        for (int i = 0; i <= usersInLobby; i++) { //TODO : <= || < ?
-            if (l_clients[i] != send_client)
-                send(l_clients[i], toSend.data(), toSend.length(), 0);
+    int sendMessage(int send_client, std::string toSend) {
+        for (int i = 0; i < MAXLOBBYSIZE; i++) {
+            if (l_clients[i].getSock() != send_client && l_clients[i].getSock() != 0) {
+                std::cout<< "Sent the message to lobby\n";
+                int a = send(l_clients[i].getSock(), toSend.data(), toSend.length(), 0);
+                std::cout << "Sent byte count of : " << a << std::endl;
+            }
         }
-        toSend = "Sent to lobby!\n";
-        send(send_client, toSend.data(), toSend.length(), 0);
         return 0; //success
     }
 
     std::string getLobbyName() {
         return name;
     }
+
+    void emptyLobby() {
+        name = ""; //Set the lobby name
+        client emptyContainer;
+        leader = emptyContainer;
+        usersInLobby = 0;
+        scoreBoard[0] = 0;
+        inGame = 0;
+    }
+
+    void exitLobby(client user) {
+        std::cout << "User is exiting a lobby\n";
+        client emptyContainer;
+        for (int i = 0; i < MAXLOBBYSIZE; i++) {
+            if (l_clients[i].getName() == user.getName()) { //user was located
+                if (l_clients[i].getName() == leader.getName()) {  //if he was lobby leader, we have to shuffle to make new leader and keep lobby open
+                    toSend = "You were the group leader. Giving next player leader status\n";
+                    send(user.getSock(), toSend.data(), toSend.length(), 0);
+                    l_clients[i] = emptyContainer;
+                    usersInLobby--;
+                    if (usersInLobby > 0) { //Look if there are any other users
+                        toSend = user.getName() + " has left the lobby.\n";
+                        sendMessage(user.getSock(), toSend);
+                        for (int k = 0; k < MAXLOBBYSIZE; k++) { //Look for new lobby leader
+                            if (l_clients[k].getSock() != 0) {
+                                leader = l_clients[k];
+                                toSend = "You are now group leader!\n";
+                                send(leader.getSock(), toSend.data(), toSend.length(), 0);
+                                break;
+                            }
+                        }
+                    } else {
+                        std::cout << "Lobby is empty... ERASING\n";
+                        emptyLobby();
+                        break;
+                    }
+                } else { //Erase the client (not leader)
+                    l_clients[i] = emptyContainer;
+                    usersInLobby--;
+                    toSend = "You have left lobby : "+ name + "\n";
+                    send(user.getSock(), toSend.data(), toSend.length(), 0);
+                    sendMessage(user.getSock(), (user.getName() + " has left the lobby.\n"));
+                    break;
+                }
+            }
+        }
+    }
 };
 
 
 std::vector<lobbies> listOfLobbies(MAXLOBBIES); //max lobbies.
 int lobbiesUsed = 0;
+
+int nextFreeLobby() {
+    for (int i = 0; i < MAXLOBBIES; i++) {
+        if (listOfLobbies[i].getLobbyName() == "") { //lobby is free
+            return i;
+        }
+    }
+    return -1;
+}
+
+bool isLobbyNameOrinal(std::string lobbyName) {
+    for (int i = 0; i < MAXLOBBIES; i++) {
+        if (listOfLobbies[i].getLobbyName() == lobbyName) {
+            return false;
+        }
+    }
+    return true;
+}

@@ -37,7 +37,7 @@ void Client::tick() {
 
     if (socketBuffer.hasLine()) {
         theLine = socketBuffer.readLine();
-cout << "We recieved : " << theLine << endl;
+//cout << "We recieved : " << theLine << endl;
         if (theLine[0] == 'W' && theLine[1] == 'H') { //for WHO-OK
             int numUsers = 0; //holds number of users.
             int recLength = theLine.size() + 1;
@@ -59,7 +59,7 @@ cout << "We recieved : " << theLine << endl;
         } else if (theLine[0] == 'U') {
             cout << "The user is not currently logged in. Try again later." << endl;
         } else {
-            cout << "[SERVER] : " << theLine << endl;
+            cout << "[SERVER] : " << theLine;
         }
 
     }
