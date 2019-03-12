@@ -37,10 +37,10 @@ void Client::tick() {
 
     if (socketBuffer.hasLine()) {
         theLine = socketBuffer.readLine();
-//cout << "We recieved : " << theLine << endl;
-        if (theLine[0] == 'W') { //for WHO-OK
+cout << "We recieved : " << theLine << endl;
+        if (theLine[0] == 'W' && theLine[1] == 'H') { //for WHO-OK
             int numUsers = 0; //holds number of users.
-            int recLength = theLine.size()+1;
+            int recLength = theLine.size() + 1;
             cout << "[SYSTEM] The users currently logged in are: " << endl << "\t[" << numUsers << "]";
             for (int i = 7; i < recLength && theLine[i] != '\0'; i++) { //start from first name
                 if (theLine[i] == 44) { //44 is ASCII for ','
@@ -54,7 +54,7 @@ void Client::tick() {
         } else if (theLine[0] == 'D') { //for delivery
             cout << theLine;
 
-        } else if (theLine[0] == 'S' ) { //for AKN on send ('SEND-OK')
+        } else if (theLine[0] == 'S') { //for AKN on send ('SEND-OK')
             cout << theLine;
         } else if (theLine[0] == 'U') {
             cout << "The user is not currently logged in. Try again later." << endl;
@@ -185,7 +185,8 @@ void Client::createSocketAndLogIn() {
             delete[] message; //free the buffer
 
             //recieve message
-            memset(&response[0], 0, sizeof(response)); // clear buffer to free the stream and prevent too much being written
+            memset(&response[0], 0,
+                   sizeof(response)); // clear buffer to free the stream and prevent too much being written
             recv(sock, response, BUFSIZE, 0);
 
             //Check response of server to see if accepted.
@@ -206,11 +207,11 @@ void Client::createSocketAndLogIn() {
 
     freeaddrinfo(infoptr);//free memory space from addrinfo struct
 
-   /*____________________Chat session succefully created.________________________*/
+    /*____________________Chat session succefully created.________________________*/
     cout << "[SYSTEM] : Welcome to the chat server! you can exit at anytime by typing '!quit'." << endl
-        << "\t\t - Ask who is logged in using !who" << endl
-        << "\t\t - Send message in the form @<username> <message>" << endl
-        << "\t\t - Use a test-timer typing !test" << endl;
+         << "\t\t - Ask who is logged in using !who" << endl
+         << "\t\t - Send message in the form @<username> <message>" << endl
+         << "\t\t - Use a test-timer typing !test" << endl;
 
     //now tick() will run.
 
