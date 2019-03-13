@@ -59,7 +59,7 @@ void Client::tick() {
         } else if (theLine[0] == 'U') {
             cout << "The user is not currently logged in. Try again later." << endl;
         } else {
-            cout << "[SERVER] : " << theLine;
+            cout << "\a[SERVER] : " << theLine;
         }
 
     }
@@ -69,6 +69,7 @@ int Client::readFromStdin() {
     int start;
     string userInput, messageToUser, targetUser;
     getline(cin, userInput);
+//    cout << "^[[<1>A [YOU] : " << userInput; //TODO : find way to fix last input to put [you] before
 
     if (userInput != "!quit") {
         if (userInput == "!who") { //send message
@@ -85,7 +86,7 @@ int Client::readFromStdin() {
             }
             if (messageToUser.size() <= 0) {
                 cout << "Message needs to be at least 1 character" << endl;
-                exit(-1);
+                return -1; //leave function
             }
 
             userInput = "SEND " + targetUser + " " + messageToUser; //formulate
@@ -100,6 +101,8 @@ int Client::readFromStdin() {
         stdinBuffer.writeChars(messageToStd, userInput.size() + 1);
 
         delete[] messageToStd;
+
+
 
         return 0;
     }

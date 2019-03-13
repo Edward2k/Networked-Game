@@ -243,9 +243,11 @@ public:
         usersInLobby = 0;
         scoreBoard[0] = 0;
         inGame = 0;
+        //Global scope
+
     }
 
-    void exitLobby(client user) {
+    int exitLobby(client user) {
         std::cout << "User is exiting a lobby\n";
         client emptyContainer;
         for (int i = 0; i < MAXLOBBYSIZE; i++) {
@@ -281,6 +283,7 @@ public:
                 }
             }
         }
+        return usersInLobby; // 0 means the lobby is empty
     }
 };
 
@@ -297,7 +300,7 @@ int nextFreeLobby() {
     return -1;
 }
 
-bool isLobbyNameOrinal(std::string lobbyName) {
+bool isLobbyNameOriginal(std::string lobbyName) {
     for (int i = 0; i < MAXLOBBIES; i++) {
         if (listOfLobbies[i].getLobbyName() == lobbyName) {
             return false;

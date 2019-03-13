@@ -259,10 +259,13 @@ void runServer() {
                     //Close the socket and mark as 0 in list for reuse
                     std::cout << "[CLOSE SOCKET] : " << i << std::endl;
                     loggedInUsers--; //decrement counter.
-                    if (allClients[i].isInLobby()) { //logout lobby if he was in one
+                    if (allClients[i].isInLobby()) {
                         int theLobby = allClients[i].getLobbyIndex();
-                        listOfLobbies[theLobby].exitLobby(allClients[i]); //exit the lobby
                         allClients[i].exitLobby(); //user must exit the lobby
+                        int a = listOfLobbies[theLobby].exitLobby(allClients[i]); //exit the lobby
+                        if (a == 0) { //lobby was empty and erased, decrement counter
+                            lobbiesUsed--;
+                        }
                     }
                     close(sd);
                     allClients[i].eraseClient(); //reset to default values
@@ -301,7 +304,7 @@ void runServer() {
                             for (int i = 8; i < inStr.length() - 1; i++) {
                                 lobbyName += buffer[i];
                             }
-                            if (isLobbyNameOrinal(lobbyName)) { //is name original
+                            if (isLobbyNameOriginal(lobbyName)) { //is name original
                                 int a = nextFreeLobby(); //get next free lobby
                                 if (a != -1) { //There is a lobby ready
                                     //create new lobby;
@@ -358,8 +361,12 @@ void runServer() {
 /*quit lbby*/   } else if(inStr.at(0) == '!' && inStr.at(1) == 'q') {
                     if (allClients[i].isInLobby()) {
                         int theLobby = allClients[i].getLobbyIndex();
-                        listOfLobbies[theLobby].exitLobby(allClients[i]); //exit the lobby
                         allClients[i].exitLobby(); //user must exit the lobby
+                        int a = listOfLobbies[theLobby].exitLobby(allClients[i]); //exit the lobby
+                        if (a == 0) { //lobby was empty and erased, decrement counter
+                            lobbiesUsed--;
+                        }
+
                     } else {
                         toSend = "You are not in a lobby\n";
                         send(sd, toSend.data(), toSend.length(), 0);
@@ -367,14 +374,19 @@ void runServer() {
 /*what lobby*/  } else if (inStr.at(0) == '!' && inStr.at(1) == 'w') {
                     std::cout << "Sending list of lobbies\n";
                     toSend = "List of lobbies is : ";
-                    for (int i = 0; i < MAXLOBBIES; i++) {
-                        if (listOfLobbies[i].getLobbyName() != "") {
-                            toSend += listOfLobbies[i].getLobbyName() + ", ";
+                    if (lobbiesUsed > 0) {
+                        for (int i = 0; i < MAXLOBBIES; i++) {
+                            if (listOfLobbies[i].getLobbyName() != "") {
+                                toSend += listOfLobbies[i].getLobbyName() + ", ";
+                            }
                         }
+                        toSend += "\n";
+                        std::cout << "List of lobbies send is : " << toSend;
+                    } else {
+                        toSend = "There are no lobbies currently open! You can open one with '!clobby <lobbyName>'\n";
                     }
-                    toSend += "\n";
-                    std::cout<< "List of lobbies send is : " << toSend;
                     send(sd, toSend.data(), toSend.length(), 0);
+
 
                 } else { //BAD request.
                     toSend = "BAD-RQST-BODY\n"; //bad body response
