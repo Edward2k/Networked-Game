@@ -466,8 +466,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Game-Server/main_server.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="431" column="117" selection-start-line="431" selection-start-column="117" selection-end-line="431" selection-end-column="117" />
+            <state relative-caret-position="266">
+              <caret line="426" column="42" selection-start-line="426" selection-start-column="42" selection-end-line="426" selection-end-column="42" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -615,12 +615,12 @@
       <workItem from="1551953514352" duration="543000" />
       <workItem from="1551956952510" duration="599000" />
       <workItem from="1552493367559" duration="348000" />
-      <workItem from="1552494166361" duration="4243000" />
+      <workItem from="1552494166361" duration="4596000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51005000" />
+    <option name="totallyTimeSpent" value="51358000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -630,7 +630,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21232876" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.21232876" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -638,7 +638,7 @@
       <window_info anchor="bottom" id="Database Changes" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.18356164" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.18356164" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.32876712" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.26438355" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -813,8 +813,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Game-Server/main_server.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="431" column="117" selection-start-line="431" selection-start-column="117" selection-end-line="431" selection-end-column="117" />
+        <state relative-caret-position="266">
+          <caret line="426" column="42" selection-start-line="426" selection-start-column="42" selection-end-line="426" selection-end-column="42" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>

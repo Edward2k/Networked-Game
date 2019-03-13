@@ -419,7 +419,7 @@ void runServer() {
                                     break;
                                 }
                             }
-                            if (wordLength > 1) {
+                            if (wordLength > 0) {
                                 std::cout << "Word length chosen is: " << wordLength << std::endl;
                                 //Begin the game
                                 listOfLobbies[allClients[i].getLobbyIndex()].beginGame(wordLength);
