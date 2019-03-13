@@ -112,8 +112,6 @@ int Client::readFromStdin() {
 
         stdinBuffer.writeChars(messageToStd, userInput.size() + 1);
 
-        cout << "SENDING MESSAGE : " << userInput;
-
         delete[] messageToStd;
 
 

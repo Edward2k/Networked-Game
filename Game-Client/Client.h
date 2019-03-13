@@ -6,6 +6,7 @@
 #define CPP_CHAT_CLIENT_CLIENT_H
 
 #ifdef _WIN32
+SetConsoleMode(handle, ENABLE_VIRTUAL_TERMINAL_PROCESSING)
 #else
 #include <pthread.h>
 #endif
