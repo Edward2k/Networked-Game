@@ -379,10 +379,25 @@ void runServer() {
                             toSend = "There are no lobbies currently open! You can open one with '!clobby <lobbyName>'\n";
                         }
                         send(sd, toSend.data(), toSend.length(), 0);
-                    } else { //BAD request.
-                        toSend = "Sorry. Please try sending that again.\n"; //bad body response
-                        send(sd, toSend.data(), toSend.length(), 0);
-                    }
+/*mssg lobby*/      } else if (inStr.at(1) == 'm') {
+                        if (allClients[i].isInLobby()) {
+                            std::string theMessage = "";
+                            for (int i = 8; i < inStr.length(); i++) { //include \n
+                                theMessage += buffer[i];
+                            }
+
+                            theMessage = "LobbyMessage from " + allClients[i].getName() + " " + theMessage;
+                            int lobbyPlace = allClients[i].getLobbyIndex();
+                            listOfLobbies[lobbyPlace].sendMessage(allClients[i].getSock(), theMessage);
+                            toSend = "Lobby SEND-OK\n";
+                        } else {
+                            toSend = "You are not in a lobby.\n";
+                        }
+                        send(sd, toSend.data(), toSend.length(), 0); //send the result to user.
+/*BAD RQST*/        } else { //BAD request.
+                            toSend = "Sorry. Please try sending that again.\n"; //bad body response
+                            send(sd, toSend.data(), toSend.length(), 0);
+                        }
                 } else {
                     if (buffer[0] == 'S') {
                         std::cout << "Message to send!\n";
