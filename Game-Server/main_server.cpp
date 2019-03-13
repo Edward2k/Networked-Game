@@ -196,7 +196,7 @@ void runServer() {
 
     createSocket();
 
-    while(true) {
+    while (true) {
         memset(&buffer[0], 0, sizeof(buffer));
         //clear the socket set
         FD_ZERO(&readfds);
@@ -205,17 +205,17 @@ void runServer() {
         FD_SET(master_sock, &readfds);
         max_sd = master_sock;
 
-        for (int i=0; i < MAXCLIENTS; i++) {
+        for (int i = 0; i < MAXCLIENTS; i++) {
             sd = allClients[i].getSock();
 
             //if valid socket descriptor then add to read list
-            if(sd > 0) {
+            if (sd > 0) {
                 FD_SET(sd, &readfds);
             }
 
             //This is the highest possible file descriptor number. This is needed for the select() function used to pool
             //multiple users at the same time instead of multithreading.
-            if(sd > max_sd) {
+            if (sd > max_sd) {
                 max_sd = sd;
             }
 
@@ -225,8 +225,8 @@ void runServer() {
          * Wait for activity on one of the MAXCLIENTS ports (5). NULL indicates no timeout time.
          *--------------------------------------------------------------------------------------------- */
 
-        int activity = select( max_sd + 1 , &readfds , NULL , NULL , NULL);
-        if (activity < 0 && errno!=EINTR) { //if there is an error: TODO: lookup errno!=EINTR
+        int activity = select(max_sd + 1, &readfds, NULL, NULL, NULL);
+        if (activity < 0 && errno != EINTR) { //if there is an error: TODO: lookup errno!=EINTR
             throw std::runtime_error("Could not select! Adios!");
         }
 
@@ -236,7 +236,7 @@ void runServer() {
          *--------------------------------------------------------------------------------------------- */
 
         if (FD_ISSET(master_sock, &readfds)) { //login
-            std::cout<<"CONNECTING...\n";
+            std::cout << "CONNECTING...\n";
             connectAndLogin();
         } //endif
 
@@ -244,16 +244,17 @@ void runServer() {
         * anything else, there is some IO operation on another active socket.
         *--------------------------------------------------------------------------------------------- */
 //https://www.binarytides.com/multiple-socket-connections-fdset-select-linux/
-        for (int i = 0; i < MAXCLIENTS; i++ ) { //iterate through the clients
+        for (int i = 0; i < MAXCLIENTS; i++) { //iterate through the clients
             sd = allClients[i].getSock(); //check the socket
             std::string clientName = allClients[i].getName();
-            if (FD_ISSET( sd , &readfds)) {//if there is activity here.
+            if (FD_ISSET(sd, &readfds)) {//if there is activity here.
                 std::cout << "ACTIVITY ON socket location : " << i << std::endl;
 //TODO: Here you can decide what to do with incoming data.
                 //check if activity is for closing the socket
+                memset(&buffer[0], 0, sizeof(buffer)); // clear buffer to free the stream
                 int valread = read(sd, buffer, BUFFERSIZE); //check to see. 0 means close socket.
                 std::string inStr = buffer; //convert to string for easy branching below.
-                std::cout << "WE RECIEVED THE MESS : " << inStr << std::endl;
+                std::cout << "WE RECEIVED THE MESS : " << inStr << "  ||| with bytes of : " << valread << std::endl;
 
 /*Close sock*/  if (valread == 0) {
                     //Close the socket and mark as 0 in list for reuse
@@ -269,138 +270,145 @@ void runServer() {
                     }
                     close(sd);
                     allClients[i].eraseClient(); //reset to default values
-/*Send mssg*/   } else if (buffer[0] == 'S') {
-                    std::cout << "Message to send!\n";
-                    if (forwardMessage(i) == 0) {
-                        toSend = "SEND-OK\n";
-                    } else {
-                        toSend = "UNKNOWN\n";
-                    }
-                    send(sd, toSend.data(), toSend.length(), 0);
-/*WHO*/         } else if (buffer[0] == 'W') {
-                    toSend = createLoggedUserString(); //Create the string
-                    send(sd, toSend.data(), toSend.length(), 0);
-/*test_time*/   } else if (inStr == "!time\n") {
-                    if (sd == replyTimers[i].getClient()) { //if timer is running. stop.
-                        toSend = replyTimers[i].getTimeStr();
-                        timeClients emptyContainer; //creates empty object
-                        replyTimers[i] = emptyContainer;
-                        send(sd, toSend.data(), toSend.length(), 0);
-                    } else { //start the timer.
-                        std::cout << "Starting the timer \n";
-                        toSend = "Timing how long it takes you to reply! Reply with \"!time\" to get time\n";
-                        send(sd, toSend.data(), toSend.length(), 0);
-                        startTimeReply(i);
-                    }
-/*C lobby*/     } else if (inStr.at(0) == '!' && inStr.at(1) == 'c') {
-                    if(allClients[i].isInLobby()) { //User is already in lobby
-                        toSend = "You are currently in another lobby. Please leave by typing !qlobby\n";
-                        send(sd, toSend.data(), toSend.length(), 0); //send the data
-                    } else {
-                        std::cout << "Making the lobby" << std::endl;
-                        if (lobbiesUsed < MAXLOBBIES) { //If space, make the lobby
-                            //Get lobby name
+                }
+
+                if (buffer[0] == '!') {
+                    if (buffer[1] == 't') {
+                        if (sd == replyTimers[i].getClient()) { //if timer is running. stop.
+                            toSend = replyTimers[i].getTimeStr();
+                            timeClients emptyContainer; //creates empty object
+                            replyTimers[i] = emptyContainer;
+                            send(sd, toSend.data(), toSend.length(), 0);
+                        } else { //start the timer.
+                            std::cout << "Starting the timer \n";
+                            toSend = "Timing how long it takes you to reply! Reply with \"!time\" to get time\n";
+                            send(sd, toSend.data(), toSend.length(), 0);
+                            startTimeReply(i);
+                        }
+/*C lobby*/         } else if (inStr.at(1) == 'c') {
+                        if (allClients[i].isInLobby()) { //User is already in lobby
+                            toSend = "You are currently in another lobby. Please leave by typing !qlobby\n";
+                            send(sd, toSend.data(), toSend.length(), 0); //send the data
+                        } else {
+                            std::cout << "Making the lobby" << std::endl;
+                            if (lobbiesUsed < MAXLOBBIES) { //If space, make the lobby
+                                //Get lobby name
+                                std::string lobbyName;
+                                for (int i = 8; i < inStr.length() - 1; i++) {
+                                    lobbyName += buffer[i];
+                                }
+                                if (isLobbyNameOriginal(lobbyName)) { //is name original
+                                    int a = nextFreeLobby(); //get next free lobby
+                                    if (a != -1) { //There is a lobby ready
+                                        //create new lobby;
+                                        lobbies lobby(allClients[i], lobbyName);
+                                        listOfLobbies[a] = lobby; //add to list of lobbies
+                                        allClients[i].joinLobbyIndex(a);
+                                        toSend = "Lobby made with name " + lobbyName + "!\n";
+                                        send(sd, toSend.data(), toSend.length(), 0);
+                                    }
+                                    lobbiesUsed++;
+                                } else {
+                                    toSend = "That lobby name is taken. Please try another name.\n";
+                                    send(sd, toSend.data(), toSend.length(), 0);
+                                }
+                            } else { //no space
+                                toSend = "All lobbies are full... Try again later.\n";
+                                send(sd, toSend.data(), toSend.length(), 0);
+                            }
+                        }
+/*J lobby*/         } else if (inStr.at(1) == 'j') {
+                        if (allClients[i].isInLobby()) {
+                            toSend = "You are currently in another lobby. Please leave by typing !qlobby\n";
+                            send(sd, toSend.data(), toSend.length(), 0); //send the data
+                        } else {
+                            std::cout << "Putting user in Lobby\n";
+                            //get the name
                             std::string lobbyName;
                             for (int i = 8; i < inStr.length() - 1; i++) {
                                 lobbyName += buffer[i];
                             }
-                            if (isLobbyNameOriginal(lobbyName)) { //is name original
-                                int a = nextFreeLobby(); //get next free lobby
-                                if (a != -1) { //There is a lobby ready
-                                    //create new lobby;
-                                    lobbies lobby(allClients[i], lobbyName);
-                                    listOfLobbies[a] = lobby; //add to list of lobbies
-                                    allClients[i].joinLobbyIndex(a);
-                                    toSend = "Lobby made with name " + lobbyName + "!\n";
-                                    send(sd, toSend.data(), toSend.length(), 0);
-                                }
-                                lobbiesUsed++;
+                            if (lobbyName == "") { //make sure he put in a name
+                                toSend = "Please enter a lobby name to join.\n";
+                                send(sd, toSend.data(), toSend.length(), 0); //send the data
                             } else {
-                                toSend = "That lobby name is taken. Please try another name.\n";
-                                send(sd, toSend.data(), toSend.length(), 0);
+                                //look for lobby
+                                for (int k = 0; k < MAXLOBBIES; k++) {
+                                    if (listOfLobbies[k].getLobbyName() == lobbyName) {
+                                        if (listOfLobbies[k].joinLobby(allClients[i])) {
+                                            allClients[i].joinLobbyIndex(k);
+                                        } else {
+                                            toSend = "The lobby is full. Please try again later.\n";
+                                            send(sd, toSend.data(), toSend.length(), 0); //send the data
+                                        }
+                                        break;
+                                    }
+                                    if (k == MAXLOBBIES - 1) {
+                                        toSend = "There is no lobby by that name\n";
+                                        send(sd, toSend.data(), toSend.length(), 0); //send the data
+
+                                    }
+                                }
                             }
-                        } else { //no space
-                            toSend = "All lobbies are full... Try again later.\n";
+                        }
+/*quit lbby*/       } else if (inStr.at(1) == 'q') {
+                        if (allClients[i].isInLobby()) {
+                            int theLobby = allClients[i].getLobbyIndex();
+                            allClients[i].exitLobby(); //user must exit the lobby
+                            int a = listOfLobbies[theLobby].exitLobby(allClients[i]); //exit the lobby
+                            if (a == 0) { //lobby was empty and erased, decrement counter
+                                lobbiesUsed--;
+                            }
+
+                        } else {
+                            toSend = "You are not in a lobby\n";
                             send(sd, toSend.data(), toSend.length(), 0);
                         }
-                    }
-/*J lobby*/     } else if (inStr.at(0) == '!' && inStr.at(1) == 'j') {
-                    if(allClients[i].isInLobby()) {
-                        toSend = "You are currently in another lobby. Please leave by typing !qlobby\n";
-                        send(sd, toSend.data(), toSend.length(), 0); //send the data
-                    } else {
-                        std::cout << "Putting user in Lobby\n";
-                        //get the name
-                        std::string lobbyName;
-                        for (int i = 8; i < inStr.length() - 1; i++) {
-                            lobbyName += buffer[i];
-                        }
-                        if (lobbyName == "") { //make sure he put in a name
-                            toSend = "Please enter a lobby name to join.\n";
-                            send(sd, toSend.data(), toSend.length(), 0); //send the data
-                        } else {
-                            //look for lobby
-                            for (int k = 0; k < MAXLOBBIES; k++) {
-                                if (listOfLobbies[k].getLobbyName() == lobbyName) {
-                                    if (listOfLobbies[k].joinLobby(allClients[i])) {
-                                        allClients[i].joinLobbyIndex(k);
-                                    } else {
-                                        toSend = "The lobby is full. Please try again later.\n";
-                                        send(sd, toSend.data(), toSend.length(), 0); //send the data
-                                    }
-                                    break;
-                                }
-                                if (k == MAXLOBBIES - 1) {
-                                    toSend = "There is no lobby by that name\n";
-                                    send(sd, toSend.data(), toSend.length(), 0); //send the data
-
+/*what lobby*/      } else if (inStr.at(1) == 'w') {
+                        std::cout << "Sending list of lobbies\n";
+                        toSend = "List of lobbies is : ";
+                        if (lobbiesUsed > 0) {
+                            for (int i = 0; i < MAXLOBBIES; i++) {
+                                if (listOfLobbies[i].getLobbyName() != "") {
+                                    toSend += listOfLobbies[i].getLobbyName() + ", ";
                                 }
                             }
+                            toSend += "\n";
+                            std::cout << "List of lobbies send is : " << toSend;
+                        } else {
+                            toSend = "There are no lobbies currently open! You can open one with '!clobby <lobbyName>'\n";
                         }
-                    }
-/*quit lbby*/   } else if(inStr.at(0) == '!' && inStr.at(1) == 'q') {
-                    if (allClients[i].isInLobby()) {
-                        int theLobby = allClients[i].getLobbyIndex();
-                        allClients[i].exitLobby(); //user must exit the lobby
-                        int a = listOfLobbies[theLobby].exitLobby(allClients[i]); //exit the lobby
-                        if (a == 0) { //lobby was empty and erased, decrement counter
-                            lobbiesUsed--;
-                        }
-
-                    } else {
-                        toSend = "You are not in a lobby\n";
+                        send(sd, toSend.data(), toSend.length(), 0);
+                    } else { //BAD request.
+                        toSend = "Sorry. Please try sending that again.\n"; //bad body response
                         send(sd, toSend.data(), toSend.length(), 0);
                     }
-/*what lobby*/  } else if (inStr.at(0) == '!' && inStr.at(1) == 'w') {
-                    std::cout << "Sending list of lobbies\n";
-                    toSend = "List of lobbies is : ";
-                    if (lobbiesUsed > 0) {
-                        for (int i = 0; i < MAXLOBBIES; i++) {
-                            if (listOfLobbies[i].getLobbyName() != "") {
-                                toSend += listOfLobbies[i].getLobbyName() + ", ";
-                            }
+                } else {
+                    if (buffer[0] == 'S') {
+                        std::cout << "Message to send!\n";
+                        if (forwardMessage(i) == 0) {
+                            toSend = "SEND-OK\n";
+                        } else {
+                            toSend = "UNKNOWN\n";
                         }
-                        toSend += "\n";
-                        std::cout << "List of lobbies send is : " << toSend;
-                    } else {
-                        toSend = "There are no lobbies currently open! You can open one with '!clobby <lobbyName>'\n";
+                        send(sd, toSend.data(), toSend.length(), 0);
+/*WHO*/         } else if (buffer[0] == 'W') {
+                        toSend = createLoggedUserString(); //Create the string
+                        send(sd, toSend.data(), toSend.length(), 0);
+/*test_time*/   } else { //BAD request.
+                        toSend = "Sorry. Please try sending that again.\n"; //bad body response
+                        send(sd, toSend.data(), toSend.length(), 0);
+
                     }
-                    send(sd, toSend.data(), toSend.length(), 0);
-
-
-                } else { //BAD request.
-                    toSend = "BAD-RQST-BODY\n"; //bad body response
-                    send(sd, toSend.data(), toSend.length(), 0);
                 }
-            }
                 //TODO : Add lobby functionality and game stuff. above else ofc.
-
+                memset(&buffer[0], 0, sizeof(buffer)); // clear buffer to free the stream
+            }
         }
-    }
-    memset(&buffer[0], 0, sizeof(buffer)); // clear buffer to free the stream
+//
     }//End while loop
 
- //close function
+}//close function
 
 
 int main() {

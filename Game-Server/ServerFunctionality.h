@@ -43,6 +43,17 @@ void connectAndLogin();
 
 std::string createLoggedUserString();
 
+bool compareBuffToStr(char * bufferInQuestion, std::string stringInQuestion) {
+    int buffSize = sizeof(bufferInQuestion);
+    for (int i = 0; i < buffSize; i++) {
+        if (bufferInQuestion[i] != stringInQuestion.at(i)) {
+            memset(&buffer[0], 0, sizeof(buffer)); //clear the buffer to prevent from happening again
+            return false;
+        }
+    }
+    return true;
+} //compares to see if buffer contains string.
+
 /*******************************************************************************************
  * Define the client class for easy managment of lobbies and names etc.
  *******************************************************************************************/

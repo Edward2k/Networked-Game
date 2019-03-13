@@ -98,7 +98,7 @@ int Client::readFromStdin() {
             }
             if (messageToUser.size() <= 0) {
                 cout << "Message needs to be at least 1 character" << endl;
-                return -1; //leave function
+                return 0; //leave function
             }
 
             userInput = "SEND " + targetUser + " " + messageToUser; //formulate
@@ -111,10 +111,8 @@ int Client::readFromStdin() {
         messageToStd[userInput.size()] = '\n'; //newline byte to show end of string in char sequence
 
         stdinBuffer.writeChars(messageToStd, userInput.size() + 1);
-
+        cout << "SENT : " << userInput << "|||" << endl;
         delete[] messageToStd;
-
-
 
         return 0;
     }
