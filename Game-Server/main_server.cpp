@@ -405,8 +405,33 @@ void runServer() {
                         }
                         send(sd, toSend.data(), toSend.length(), 0); //send the result to user.
 
-/*Who lobby*/       } else if(0) { //TODO : add start game here
-
+/*strt lobby*/      } else if(inStr.at(1) == 's') { //TODO : add start game here
+                        std::string groupLeader = listOfLobbies[allClients[i].getLobbyIndex()].whoLeader();
+                        if (groupLeader == clientName) {
+                            int wordLength = 0;
+                            for (int i = 8; i < inStr.length() && inStr.at(i) != '\n'; i++) { //include \n
+                                int a = inStr.at(i);
+                                if (a > 47 && a < 58) {//48 - 57
+                                    wordLength = wordLength * 10;
+                                    wordLength += (a - 48); //get int value, not char value
+                                } else {
+                                    wordLength = -1;
+                                    break;
+                                }
+                            }
+                            if (wordLength > 1) {
+                                std::cout << "Word length chosen is: " << wordLength << std::endl;
+                                //Begin the game
+                                listOfLobbies[allClients[i].getLobbyIndex()].beginGame(wordLength);
+                            } else { //INVALID WORD LENGTH. SEND AGAIN.
+                                toSend = "Please use numbers greater than 0 for word length\n";
+                                send(sd, toSend.data(), toSend.length(), 0); //report error
+                            }
+                        } else {
+                            toSend = "You must be the leader to start the game. The leader is " + groupLeader + "\n";                              ".\n";
+                            send(sd, toSend.data(), toSend.length(), 0); //send the result to user.
+                            std::cout << "User wanted to start game but was not leader\n";
+                        }
 /*BAD RQST*/        } else { //BAD request.
                             toSend = "Sorry. Please try sending that again.\n"; //bad body response
                             send(sd, toSend.data(), toSend.length(), 0);

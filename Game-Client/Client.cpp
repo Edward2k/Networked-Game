@@ -134,7 +134,7 @@ void Client::closeSocket() { //close the socket
 
 //Assignment 1
 void Client::createSocketAndLogIn() {
-    printf( "%c[2J", ASCII_ESC ); //Clear the screen
+    printf ( "%c[2J", ASCII_ESC ); //Clear the screen
     printf ( "%c[H", ASCII_ESC );
     printf ( "%c[32m", ASCII_ESC ); //Send in green
     cout << "Welcome to Type racing!!!!" << endl;

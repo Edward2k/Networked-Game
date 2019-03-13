@@ -43,16 +43,37 @@ void connectAndLogin();
 
 std::string createLoggedUserString();
 
-bool compareBuffToStr(char * bufferInQuestion, std::string stringInQuestion) {
-    int buffSize = sizeof(bufferInQuestion);
-    for (int i = 0; i < buffSize; i++) {
-        if (bufferInQuestion[i] != stringInQuestion.at(i)) {
-            memset(&buffer[0], 0, sizeof(buffer)); //clear the buffer to prevent from happening again
-            return false;
+//Generates random words for game sequence.
+//Returns vector of random strings (20 strings)
+std::vector<std::string> wordGenerator(int wordLength){
+
+    std::string ranWord = "";
+    std::vector<std::string> wordVec;
+    srand(time(0));
+
+    for(int i = 0; i < 20; ++i) {
+        for(int j = 0; j < wordLength; j++) {
+            char random = rand() % 58 + 65; // all letters caps and no caps
+            if (random > 90 && random < 97) { // ignore none letters between
+                random += 6;
+            }
+            ranWord += random;
         }
+        wordVec.push_back(ranWord);
+        ranWord = "";
     }
-    return true;
-} //compares to see if buffer contains string.
+    return wordVec;
+}
+
+std::string stringifyVectorOfStrings(std::vector<std::string> theVector) {
+    std::string result= "";
+    for (int i = 0; i < theVector.size() - 1; i++) {
+        result += theVector.at(i);
+        result += ", ";
+    }
+    result += theVector.at(theVector.size()-1); //add last element
+    return result;
+}
 
 /*******************************************************************************************
  * Define the client class for easy managment of lobbies and names etc.
@@ -169,13 +190,13 @@ void startTimeReply(int i) { //Time how long it takes to reply
 
 class lobbies {
 private:
-    std::chrono::time_point<std::chrono::high_resolution_clock> startGame; //start time stamp
+    std::chrono::time_point<std::chrono::high_resolution_clock> gameTimeStart; //start time stamp
     std::string name;
     client leader; //matches leader
     client l_clients[MAXLOBBYSIZE];
     int scoreBoard[MAXLOBBYSIZE];
     int usersInLobby;
-    bool inGame; //0 for no, 1 for yes
+    bool inGame; //true or false
 public:
 
     lobbies(client masterClient, std::string lobbyName) {
@@ -184,7 +205,7 @@ public:
         l_clients[0] = leader;
         usersInLobby = 1;
         scoreBoard[0] = 0;
-        inGame = 0;
+        inGame = false;
 
         for (int i = 1; i < MAXLOBBYSIZE; i++) {
             l_clients[i].eraseClient(); //Set to empty objects
@@ -197,11 +218,15 @@ public:
         leader = emptyContainer;
         usersInLobby = 0;
         scoreBoard[0] = 0;
-        inGame = 0;
+        inGame = false;
     }   //default constructor
 
     bool spaceToJoin() {
         return usersInLobby < MAXLOBBYSIZE; //while not max space
+    }
+
+    std::string whoLeader() {
+        return leader.getName();
     }
 
     bool joinLobby(client addClient) {
@@ -221,6 +246,10 @@ public:
         }
     }
 
+    bool isInGame() {
+        return inGame;
+    }
+
     void sendLobbyList(int client) { //sends to requested user who is in lobby
         toSend = "In the lobby '" + name + "' we have: ";  //TODO : finsih implementing this
         for (int i =0 ; i < MAXLOBBYSIZE; i++) {
@@ -232,6 +261,7 @@ public:
         send(client, toSend.data(), toSend.length(), 0);
     }
 
+    //Sends everyone but sender message
     int sendMessage(int send_client, std::string toSend) {
         for (int i = 0; i < MAXLOBBYSIZE; i++) {
             if (l_clients[i].getSock() != send_client && l_clients[i].getSock() != 0) {
@@ -243,8 +273,35 @@ public:
         return 0; //success
     }
 
+    //SENDS everyone a message
+    int sendAll(std::string message) {
+        for (int i = 0; i < MAXLOBBYSIZE; i++) {
+            if (l_clients[i].getSock() != 0) {
+                std::cout<< "Sent the string to lobby\n";
+                int a = send(l_clients[i].getSock(), message.data(), message.length(), 0);
+                std::cout << "Sent byte count of : " << a << std::endl;
+            }
+        }
+    }
+
     std::string getLobbyName() {
         return name;
+    }
+
+    //Starts game with length of word given by user (a is wordLength)
+    void beginGame(int a) {
+        std::cout << "The game for lobby " + name + " is beggining.." << std::endl;
+        inGame = true; //In game
+        gameTimeStart = std::chrono::high_resolution_clock::now(); //TIME STAMPED
+        std::string gameWords = stringifyVectorOfStrings(wordGenerator(a)); //get random words and stringify
+        gameWords += "\n";
+        std::cout << "The GAMEWORDS are : " << gameWords << "\n";
+
+        //Notify everyone the game is starting
+        toSend = "GAME-START\n";
+        sendAll(toSend);
+        //Immediately after send everyone the game list
+        sendAll(gameWords);
     }
 
     void emptyLobby() {
@@ -253,7 +310,7 @@ public:
         leader = emptyContainer;
         usersInLobby = 0;
         scoreBoard[0] = 0;
-        inGame = 0;
+        inGame = false;
         //Global scope
 
     }
