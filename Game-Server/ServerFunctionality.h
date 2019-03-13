@@ -4,7 +4,7 @@
 
 #ifndef CHATSERVER_SERVERFUNCTIONALITY_H
 #define CHATSERVER_SERVERFUNCTIONALITY_H
-#endif //CHATSERVER_SERVERFUNCTIONALITY_H
+#endif CHATSERVER_SERVERFUNCTIONALITY_H
 
 #include <stdio.h>
 #include <string.h>   //strlen
@@ -26,12 +26,14 @@
 #define MAXCLIENTS 10
 #define MAXLOBBYSIZE 5
 #define MAXLOBBIES 4
+#define GAMETIME 20000 //millaseconds
 
 struct sockaddr_in address; //struct for machine readable address.
 fd_set readfds; //set of socket descriptors.
 int master_sock, addrlen, valread, sd, max_sd, check, i, loggedInUsers;
 std::string recieved, toSend; //IO to/from clients
 char buffer[BUFFERSIZE]; //buffer for incoming messages.
+
 
 void runServer();
 
@@ -88,11 +90,14 @@ private:
 
 public:
 
+    bool inGame;
+
     client() { //default constructor
         clientSock = 0;
         clientName = "";
         listOfLobbiesIndex = -1;
         inLobby = false;
+        inGame = false;
     }
 
     client(int clientSocket, std::string nameOfClient) { //list of clients
@@ -100,6 +105,7 @@ public:
         clientName = nameOfClient;
         listOfLobbiesIndex = -1;
         inLobby = false;
+        inGame = false;
     }
 
     std::string getName() {
@@ -136,6 +142,7 @@ public:
     bool isInLobby() {return inLobby;}
 };
 
+client allClients[MAXCLIENTS]; //make class for clients
 /*******************************************************************************************
  * NOW IT IS TIME TO IMPLEMENT SOME CHEEKY TIMING FOR TESTING HOW IT WORKS
  *******************************************************************************************/
@@ -221,6 +228,10 @@ public:
         inGame = false;
     }   //default constructor
 
+    std::chrono::time_point<std::chrono::high_resolution_clock> getTime() {
+        return gameTimeStart;
+    }
+
     bool spaceToJoin() {
         return usersInLobby < MAXLOBBYSIZE; //while not max space
     }
@@ -296,6 +307,16 @@ public:
         std::string gameWords = stringifyVectorOfStrings(wordGenerator(a)); //get random words and stringify
         gameWords += "\n";
         std::cout << "The GAMEWORDS are : " << gameWords << "\n";
+        for (int i = 0; i < MAXLOBBYSIZE; i++) {
+            if (l_clients[i].getSock() != 0) {
+                for (int k = 0; k < MAXCLIENTS; k++) {
+                    if (allClients[k].getSock() == l_clients[i].getSock()) {
+                        allClients[k].inGame = true;
+                        l_clients[i] = allClients[k];
+                    }
+                }
+            }
+        }
 
         //Notify everyone the game is starting
         toSend = "GAME-START\n";
@@ -303,6 +324,22 @@ public:
         //Immediately after send everyone the game list
         sendAll(gameWords);
     }
+
+    void endGame() {
+        for (int i = 0; i < MAXLOBBYSIZE; i++) {
+            if (l_clients[i].getSock() != 0) {
+                for (int k = 0; k < MAXCLIENTS; k++) {
+                    if (allClients[k].getSock() == l_clients[i].getSock()) {
+                        allClients[k].inGame = false;
+                        l_clients[i] = allClients[k];
+                    }
+                }
+            }
+        }
+        inGame = false;
+        sendAll("END-GAME\n");
+
+    };
 
     void emptyLobby() {
         name = ""; //Set the lobby name
