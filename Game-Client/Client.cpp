@@ -8,9 +8,11 @@
 #include <string>
 #include <iostream>
 #include <sstream>
-
 #define BUFSIZE 1024 //1024 bytes buffer for response stream (1 byte/char)
 using namespace std;
+
+#define foreground_magenta "\033[32m"
+#define ASCII_ESC 27
 
 //Global variables for chatting with server.
 char response[BUFSIZE]; //Variable for response using Buffer size declared at head of document
@@ -36,6 +38,7 @@ void Client::tick() {
     }
 
     if (socketBuffer.hasLine()) {
+        printf ( "%c[32m", ASCII_ESC );
         theLine = socketBuffer.readLine();
 //cout << "We recieved : " << theLine << endl;
         if (theLine[0] == 'W' && theLine[1] == 'H') { //for WHO-OK
@@ -51,7 +54,8 @@ void Client::tick() {
                 }
             }
             cout << endl;
-        } else if (theLine[0] == 'D') { //for delivery
+        } else if (theLine[0] == 'D') { //for delivery //Make this neater
+            printf ( "%c[35m", ASCII_ESC ); //Send in green
             cout << theLine;
 
         } else if (theLine[0] == 'S') { //for AKN on send ('SEND-OK')
@@ -61,15 +65,23 @@ void Client::tick() {
         } else {
             cout << "\a[SERVER] : " << theLine;
         }
-
+        printf ( "%c[m", ASCII_ESC ); //remove bold. (turn off character attributes)
     }
 }
 
 int Client::readFromStdin() {
     int start;
     string userInput, messageToUser, targetUser;
+    printf ( "%c[m", ASCII_ESC ); //remove bold. (turn off character attributes)
     getline(cin, userInput);
-//    cout << "^[[<1>A [YOU] : " << userInput; //TODO : find way to fix last input to put [you] before
+    printf ( "%c[1A", ASCII_ESC ); //move up one line
+    printf ( "%c[2K", ASCII_ESC ); //Clear the entire line
+    printf ( "%c[1m", ASCII_ESC ); // print in bold
+
+//    puts ( "\033[<n>A" );
+    cout << "\b[YOU] : " << userInput << endl; //TODO : find way to fix last input to put [you] before
+
+    printf ( "%c[m", ASCII_ESC ); //remove bold. (turn off character attributes)
 
     if (userInput != "!quit") {
         if (userInput == "!who") { //send message
@@ -100,6 +112,8 @@ int Client::readFromStdin() {
 
         stdinBuffer.writeChars(messageToStd, userInput.size() + 1);
 
+        cout << "SENDING MESSAGE : " << userInput;
+
         delete[] messageToStd;
 
 
@@ -124,6 +138,10 @@ void Client::closeSocket() { //close the socket
 
 //Assignment 1
 void Client::createSocketAndLogIn() {
+    printf( "%c[2J", ASCII_ESC ); //Clear the screen
+    printf ( "%c[H", ASCII_ESC );
+    printf ( "%c[32m", ASCII_ESC ); //Send in green
+    cout << "Welcome to Type racing!!!!" << endl;
 
     //Get info about server
     hints.ai_family = AF_INET; // AF_INET means IPv4 only addresses
@@ -173,8 +191,11 @@ void Client::createSocketAndLogIn() {
         } else { //connection succesful Login
 
             cout << "[SYSTEM] What would you like your username to be?   " << endl;
+            printf ( "%c[m", ASCII_ESC ); //remove bold. (turn off character attributes)
+
             cout << "[YOU] : ";
             getline(cin, userInput); //go up to \n (not white space)
+            printf ( "%c[32m", ASCII_ESC ); //Send in green
 
             userInput = "HELLO-FROM " + userInput + "\n"; //Make the string.
 
@@ -211,10 +232,12 @@ void Client::createSocketAndLogIn() {
     freeaddrinfo(infoptr);//free memory space from addrinfo struct
 
     /*____________________Chat session succefully created.________________________*/
-    cout << "[SYSTEM] : Welcome to the chat server! you can exit at anytime by typing '!quit'." << endl
+    cout << "\a\a\a\a\a\a\a\a[SYSTEM] : Welcome to the chat server! you can exit at anytime by typing '!quit'." << endl
          << "\t\t - Ask who is logged in using !who" << endl
          << "\t\t - Send message in the form @<username> <message>" << endl
          << "\t\t - Use a test-timer typing !test" << endl;
+    printf ( "%c[m", ASCII_ESC ); //remove bold. (turn off character attributes)
+
 
     //now tick() will run.
 

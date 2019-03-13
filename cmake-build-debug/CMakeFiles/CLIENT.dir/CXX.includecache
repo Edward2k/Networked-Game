@@ -8,6 +8,18 @@
 
 /Users/eduardolira/Desktop/GAME/Game-Client/Application.h
 
+/Users/eduardolira/Desktop/GAME/Game-Client/CircularLineBuffer.cpp
+CircularLineBuffer.h
+/Users/eduardolira/Desktop/GAME/Game-Client/CircularLineBuffer.h
+string
+-
+iostream
+-
+cstdlib
+-
+mutex
+-
+
 /Users/eduardolira/Desktop/GAME/Game-Client/CircularLineBuffer.h
 cstdlib
 -
@@ -51,6 +63,12 @@ vusocket.h
 /Users/eduardolira/Desktop/GAME/Game-Client/vusocket.h
 CircularLineBuffer.h
 /Users/eduardolira/Desktop/GAME/Game-Client/CircularLineBuffer.h
+
+/Users/eduardolira/Desktop/GAME/Game-Client/main.cpp
+iostream
+-
+Client.h
+/Users/eduardolira/Desktop/GAME/Game-Client/Client.h
 
 /Users/eduardolira/Desktop/GAME/Game-Client/vusocket.h
 iostream

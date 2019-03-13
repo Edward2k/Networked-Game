@@ -19,9 +19,9 @@
 class CircularLineBuffer {
 private:
     static const int bufferSize = 4096; // 4096
-    char buffer[bufferSize] = {0};
+    char buffer[bufferSize];
     std::mutex mtx;
-    int start = 0, count = 0;
+    int start, count;
 public:
     int freeSpace();
 
@@ -38,6 +38,14 @@ public:
     bool writeChars(const char *chars, size_t nchars);
 
     std::string readLine();
+
+    CircularLineBuffer() {
+        for (int i = 0; i < bufferSize; i++) {
+            buffer[i] = '\0';
+            start = 0;
+            count = 0;
+        }
+    }
 };
 
 

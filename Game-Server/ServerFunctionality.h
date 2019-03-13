@@ -23,7 +23,7 @@
 
 #define PORT 7070
 #define BUFFERSIZE 16384 //16kb //TODO : Use circular buffer
-#define MAXCLIENTS 20
+#define MAXCLIENTS 10
 #define MAXLOBBYSIZE 5
 #define MAXLOBBIES 4
 

@@ -397,7 +397,7 @@ void runServer() {
 
         }
     }
-
+    memset(&buffer[0], 0, sizeof(buffer)); // clear buffer to free the stream
     }//End while loop
 
  //close function
