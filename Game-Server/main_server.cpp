@@ -365,20 +365,30 @@ void runServer() {
                             send(sd, toSend.data(), toSend.length(), 0);
                         }
 /*what lobby*/      } else if (inStr.at(1) == 'w') {
-                        std::cout << "Sending list of lobbies\n";
-                        toSend = "List of lobbies is : ";
-                        if (lobbiesUsed > 0) {
-                            for (int i = 0; i < MAXLOBBIES; i++) {
-                                if (listOfLobbies[i].getLobbyName() != "") {
-                                    toSend += listOfLobbies[i].getLobbyName() + ", ";
-                                }
+    /*who lobby*/       if (inStr.at(2) == 'h') {
+                            if (allClients[i].isInLobby()) {
+                                listOfLobbies[allClients[i].getLobbyIndex()].sendLobbyList(allClients[i].getSock());
+                                //Sorry :/ had to once.
+                            } else {
+                                toSend = "You are not in a lobby.\n";
+                                send(sd, toSend.data(), toSend.length(), 0);
                             }
-                            toSend += "\n";
-                            std::cout << "List of lobbies send is : " << toSend;
                         } else {
-                            toSend = "There are no lobbies currently open! You can open one with '!clobby <lobbyName>'\n";
+                            std::cout << "Sending list of lobbies\n";
+                            toSend = "List of lobbies is : ";
+                            if (lobbiesUsed > 0) {
+                                for (int i = 0; i < MAXLOBBIES; i++) {
+                                    if (listOfLobbies[i].getLobbyName() != "") {
+                                        toSend += listOfLobbies[i].getLobbyName() + ", ";
+                                    }
+                                }
+                                toSend += "\n";
+                                std::cout << "List of lobbies send is : " << toSend;
+                            } else {
+                                toSend = "There are no lobbies currently open! You can open one with '!clobby <lobbyName>'\n";
+                            }
+                            send(sd, toSend.data(), toSend.length(), 0);
                         }
-                        send(sd, toSend.data(), toSend.length(), 0);
 /*mssg lobby*/      } else if (inStr.at(1) == 'm') {
                         if (allClients[i].isInLobby()) {
                             std::string theMessage = "";
@@ -394,6 +404,9 @@ void runServer() {
                             toSend = "You are not in a lobby.\n";
                         }
                         send(sd, toSend.data(), toSend.length(), 0); //send the result to user.
+
+/*Who lobby*/       } else if(0) { //TODO : add start game here
+
 /*BAD RQST*/        } else { //BAD request.
                             toSend = "Sorry. Please try sending that again.\n"; //bad body response
                             send(sd, toSend.data(), toSend.length(), 0);

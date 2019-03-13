@@ -111,7 +111,7 @@ int Client::readFromStdin() {
         messageToStd[userInput.size()] = '\n'; //newline byte to show end of string in char sequence
 
         stdinBuffer.writeChars(messageToStd, userInput.size() + 1);
-        cout << "SENT : " << userInput << "|||" << endl;
+//        cout << "SENT : " << userInput << "|||" << endl;
         delete[] messageToStd;
 
         return 0;

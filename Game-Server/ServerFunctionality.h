@@ -123,8 +123,6 @@ class timeClients {
 private:
     std::chrono::time_point<std::chrono::high_resolution_clock> start; //start time stamp
 
-    //TODO:: Do we need a destructor?
-
 public:
     int client; //the client
 
@@ -138,7 +136,7 @@ public:
         start = std::chrono::high_resolution_clock::now();
     }
 
-    ~timeClients() {} //TODO : Do we need destructor?
+    ~timeClients() {}
 
     int getClient() {
         return client;
@@ -224,12 +222,14 @@ public:
     }
 
     void sendLobbyList(int client) { //sends to requested user who is in lobby
-        toSend = "In the lobby we have: ";  //TODO : finsih implementing this
+        toSend = "In the lobby '" + name + "' we have: ";  //TODO : finsih implementing this
         for (int i =0 ; i < MAXLOBBYSIZE; i++) {
             if (l_clients[i].getName() != "") {
                 toSend += l_clients[i].getName() + ", ";
             }
         }
+        toSend += "\n";
+        send(client, toSend.data(), toSend.length(), 0);
     }
 
     int sendMessage(int send_client, std::string toSend) {
