@@ -69,7 +69,7 @@ void Client::tick() {
         if (inGame) {
             if (theLine.at(theLine.length() - 2) == '$') { // if we have the special symbol at end
                 gameWords = VectorizeStringWords(theLine); //Create into a vector
-                cout << "VECTORIZED" << endl;
+                printf("%c[31m", ASCII_ESC);
                 cout << "WORD: \t\t" << gameWords[wordCount] << endl; //print next game word
                 wordCount++; //increment;
             } else if (theLine.at(0) == '$') { //END GAME
