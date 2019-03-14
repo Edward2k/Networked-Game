@@ -27,7 +27,8 @@
 #define MAXCLIENTS 10
 #define MAXLOBBYSIZE 5
 #define MAXLOBBIES 4
-#define GAMETIME 20000 //miliseconds
+#define GAMETIME 2000000 //miliseconds //20000 SET
+#define WORDSPERVECTOR 20
 
 struct sockaddr_in address; //struct for machine readable address.
 fd_set readfds; //set of socket descriptors.
@@ -55,7 +56,7 @@ std::vector<std::string> wordGenerator(int wordLength){
     std::vector<std::string> wordVec;
     srand(time(0));
 
-    for(int i = 0; i < 20; ++i) {
+    for(int i = 0; i <= WORDSPERVECTOR; ++i) {
         for(int j = 0; j < wordLength; j++) {
             char random = rand() % 58 + 65; // all letters caps and no caps
             if (random > 90 && random < 97) { // ignore none letters between
@@ -214,12 +215,14 @@ public:
         name = lobbyName; //Set the lobby name
         leader = masterClient;
         l_clients[0] = leader;
-        usersInLobby = 1;
         scoreBoard[0] = 0;
+        usersInLobby = 1;
+        int gameWordSize = 0;
         inGame = false;
         gameWords = {};
 
         for (int i = 1; i < MAXLOBBYSIZE; i++) {
+            scoreBoard[i] = 0;
             l_clients[i].eraseClient(); //Set to empty objects
         }
     } //lobby constructor
@@ -229,9 +232,13 @@ public:
         client emptyContainer;
         leader = emptyContainer;
         usersInLobby = 0;
-        scoreBoard[0] = 0;
         inGame = false;
+        int gameWordSize = 0;
         gameWords = {};
+        for (int i = 0; i < MAXLOBBYSIZE; i++) {
+            scoreBoard[i] = 0;
+            l_clients[i].eraseClient(); //Set to empty objects
+        }
     }   //default constructor
 
     std::chrono::time_point<std::chrono::high_resolution_clock> getTime() {
@@ -336,19 +343,39 @@ public:
     std::string addToScoreandReturnplaces(std::string userIn, client user) {
         std::string result, wordAgainst, toSend;
         int userPlace;
-        int wordSubmit = userIn.at(userIn.length()-2) - 48; //penultimate char gives word to submit
+        //get users number
+        int k = 2;
+        int theNum = 0;
+
+//        if (a > 47 && a < 58) {//48 - 57
+//            wordLength = wordLength * 10;
+//            wordLength += (a - 48); //get int value, not char value
+//
+        while (userIn.at(userIn.length() - k) > 47 && userIn.at(userIn.length()- k) < 58) { //48-57
+            theNum = theNum * 10; //shift decimal left
+            theNum += (userIn.at(userIn.length() - k) - 48); //get int value
+            k++; //increase counter
+        }
+        std::cout << "Number of vec is : " << theNum << std::endl;
+        int wordSubmit = theNum; //penultimate char gives word to submit
+        if (wordSubmit <= 0 || wordSubmit > WORDSPERVECTOR) {
+            return "INVALID WORD\n";
+        }
         wordAgainst = gameWords[wordSubmit-1];
-        //get users word
+
         for (int i = 0; i < userIn.length()-2; i++) {//exclude \n
             result += userIn.at(i);
         }
 
+        //find user place
         for (int i = 0; i < MAXLOBBYSIZE; i++) {
             if (l_clients[i].getName() == user.getName()) {
                 userPlace = i;
                 break;
             }
         }
+        std::cout << "SCORE BEFORE : " << scoreBoard[userPlace] << std::endl;
+        //score the response
         for (int i = 0; i < wordAgainst.length()-1; i++) {
             if (result.at(i) == wordAgainst.at(i)) {
                 scoreBoard[userPlace] += 5;
@@ -359,7 +386,9 @@ public:
 
         //check size diff and change score by abs value
         int sizeDiff = result.length() - wordAgainst.length(); //gives difference in words (+ for too long, - for too short)
-        scoreBoard[userPlace] = scoreBoard[userPlace] = (abs(sizeDiff));
+        scoreBoard[userPlace] = scoreBoard[userPlace] - (abs(sizeDiff));
+
+        std::cout << "SCORE AFTER : " << scoreBoard[userPlace] << std::endl;
 
         //get the time left;
         auto diff = std::chrono::high_resolution_clock::now() - getTime();

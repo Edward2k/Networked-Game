@@ -142,7 +142,7 @@ int Client::readFromStdin() {
         if (inGame) {
             if (userInput.length() == 0) {
                 cout << "SEND SOMETHING!\n";
-                userInput = "0\n";
+                userInput = "###\n";
             } else {
                 string countWord = to_string(wordCount);
                 userInput += countWord;

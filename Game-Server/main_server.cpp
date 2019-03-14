@@ -19,6 +19,7 @@
 
 
 int createSocket() {
+    memset(&buffer[0], 0, sizeof(buffer)); // clear buffer to free the stream
     //'''struct sockaddr_in address''' //defined in ServerFunctionality.h
     //''fd_set readfds'' // The set of socket descriptors defined in header file
     //
@@ -274,15 +275,20 @@ void runServer() {
                     //check if activity is for closing the socket
                     memset(&buffer[0], 0, sizeof(buffer)); // clear buffer to free the stream
                     int valread = read(sd, buffer, BUFFERSIZE); //check to see. 0 means close socket.
-                    inStr = ""; //convert to string for easy branching below.
-                    int k = 0;
-                    while (buffer[k] != '\n') {
-                        std::cout << "K";
-                        inStr += buffer[k];
-                        k++;
+                    if (valread == 1) {
+                        std::cout << "UHOH! did not recieve it right....";
+                        inStr = "XX\n";
+                    } else {
+                        inStr = ""; //convert to string for easy branching below.
+                        int k = 0;
+                        while (buffer[k] != '\n') {
+                            std::cout << "K";
+                            inStr += buffer[k];
+                            k++;
+                        }
+                        inStr += "\n";
+                        std::cout << "WE RECEIVED THE MESS : " << inStr << valread;
                     }
-                    inStr += "\n";
-                    std::cout << "WE RECEIVED THE MESS : " << inStr;
 
 /*Close sock*/  if (valread == 0) {
                         //Close the socket and mark as 0 in list for reuse
@@ -499,7 +505,7 @@ void runServer() {
                             }
                         }
                         //TODO : Add lobby functionality and game stuff. above else ofc.
-                        memset(&buffer[0], 0, sizeof(buffer)); // clear buffer to free the stream
+                        //memset(&buffer[0], 0, sizeof(buffer)); // clear buffer to free the stream
                 }
             }
         }
