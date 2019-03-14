@@ -22,7 +22,7 @@ string userInput;
 
 bool inGame = false;
 vector<string> gameWords;
-int wordCount; //counts what word we are on.
+int wordCount = 0; //counts what word we are on.
 
 struct addrinfo hints, *infoptr; //must be global. Declare struct
 //https://www.youtube.com/watch?v=NIqYwXcUdn0
@@ -139,25 +139,37 @@ int Client::readFromStdin() {
     printf ( "%c[m", ASCII_ESC ); //remove bold. (turn off character attributes)
 
     if (userInput != "!quit") {
-        if (userInput == "!who") { //send message
-            userInput = "WHO";
-
-        } else if (userInput[0] == '@') { //Check if first 4 letters are SEND
-            //Get target user
-            for (start = 1; userInput[start] != 32; start++) {
-                targetUser += userInput[start];
+        if (inGame) {
+            if (userInput.length() == 0) {
+                cout << "SEND SOMETHING!\n";
+                userInput = "0\n";
+            } else {
+                string countWord = to_string(wordCount);
+                userInput += countWord;
+                userInput += "\n";
+                cout << "SENDING : " << userInput;
             }
-            //Get message to user (after space)
-            for (start = start + 1; start < userInput.size(); start++) {
-                messageToUser += userInput[start];
-            }
-            if (messageToUser.size() <= 0) {
-                cout << "Message needs to be at least 1 character" << endl;
-                return 0; //leave function
-            }
+        } else {
+            if (userInput == "!who") { //send message
+                userInput = "WHO";
 
-            userInput = "SEND " + targetUser + " " + messageToUser; //formulate
+            } else if (userInput[0] == '@') { //Check if first 4 letters are SEND
+                //Get target user
+                for (start = 1; userInput[start] != 32; start++) {
+                    targetUser += userInput[start];
+                }
+                //Get message to user (after space)
+                for (start = start + 1; start < userInput.size(); start++) {
+                    messageToUser += userInput[start];
+                }
+                if (messageToUser.size() <= 0) {
+                    cout << "Message needs to be at least 1 character" << endl;
+                    return 0; //leave function
+                }
 
+                userInput = "SEND " + targetUser + " " + messageToUser; //formulate
+
+            }
         }
 
         //Now the new properly formatted string are in

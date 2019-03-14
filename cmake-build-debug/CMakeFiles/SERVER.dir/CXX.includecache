@@ -33,6 +33,8 @@ chrono
 -
 vector
 -
+cmath
+-
 
 /Users/eduardolira/Desktop/GAME/Game-Server/main_server.cpp
 stdio.h

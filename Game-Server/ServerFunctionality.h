@@ -20,19 +20,21 @@
 
 #include <chrono>
 #include <vector>
+#include <cmath>
 
 #define PORT 7070
 #define BUFFERSIZE 16384 //16kb //TODO : Use circular buffer
 #define MAXCLIENTS 10
 #define MAXLOBBYSIZE 5
 #define MAXLOBBIES 4
-#define GAMETIME 20000 //millaseconds
+#define GAMETIME 20000 //miliseconds
 
 struct sockaddr_in address; //struct for machine readable address.
 fd_set readfds; //set of socket descriptors.
 int master_sock, addrlen, valread, sd, max_sd, check, i, loggedInUsers;
 std::string recieved, toSend; //IO to/from clients
 char buffer[BUFFERSIZE]; //buffer for incoming messages.
+std::string inStr = "";
 
 
 void runServer();
@@ -202,6 +204,8 @@ private:
     client leader; //matches leader
     client l_clients[MAXLOBBYSIZE];
     int scoreBoard[MAXLOBBYSIZE];
+    std::vector<std::string> gameWords;
+    int gameWordSize;
     int usersInLobby;
     bool inGame; //true or false
 public:
@@ -213,6 +217,7 @@ public:
         usersInLobby = 1;
         scoreBoard[0] = 0;
         inGame = false;
+        gameWords = {};
 
         for (int i = 1; i < MAXLOBBYSIZE; i++) {
             l_clients[i].eraseClient(); //Set to empty objects
@@ -226,6 +231,7 @@ public:
         usersInLobby = 0;
         scoreBoard[0] = 0;
         inGame = false;
+        gameWords = {};
     }   //default constructor
 
     std::chrono::time_point<std::chrono::high_resolution_clock> getTime() {
@@ -301,12 +307,14 @@ public:
 
     //Starts game with length of word given by user (a is wordLength)
     void beginGame(int a) {
+        gameWordSize = a;
         std::cout << "The game for lobby " + name + " is beggining.." << std::endl;
         inGame = true; //In game
         gameTimeStart = std::chrono::high_resolution_clock::now(); //TIME STAMPED
-        std::string gameWords = stringifyVectorOfStrings(wordGenerator(a)); //get random words and stringify
-        gameWords += "$\n";
-        std::cout << "The GAMEWORDS are : " << gameWords << "\n";
+        gameWords = wordGenerator(a);
+        std::string Words = stringifyVectorOfStrings(gameWords); //get random words and stringify
+        Words += "$\n";
+        std::cout << "The GAMEWORDS are : " << Words << "\n";
         for (int i = 0; i < MAXLOBBYSIZE; i++) {
             if (l_clients[i].getSock() != 0) {
                 for (int k = 0; k < MAXCLIENTS; k++) {
@@ -322,7 +330,57 @@ public:
         toSend = "GAME-START\n";
         sendAll(toSend);
         //Immediately after send everyone the game list
-        sendAll(gameWords);
+        sendAll(Words);
+    }
+
+    std::string addToScoreandReturnplaces(std::string userIn, client user) {
+        std::string result, wordAgainst, toSend;
+        int userPlace;
+        int wordSubmit = userIn.at(userIn.length()-2) - 48; //penultimate char gives word to submit
+        wordAgainst = gameWords[wordSubmit-1];
+        //get users word
+        for (int i = 0; i < userIn.length()-2; i++) {//exclude \n
+            result += userIn.at(i);
+        }
+
+        for (int i = 0; i < MAXLOBBYSIZE; i++) {
+            if (l_clients[i].getName() == user.getName()) {
+                userPlace = i;
+                break;
+            }
+        }
+        for (int i = 0; i < wordAgainst.length()-1; i++) {
+            if (result.at(i) == wordAgainst.at(i)) {
+                scoreBoard[userPlace] += 5;
+            } else {
+                scoreBoard[userPlace] = scoreBoard[userPlace] - 2;
+            }
+        }
+
+        //check size diff and change score by abs value
+        int sizeDiff = result.length() - wordAgainst.length(); //gives difference in words (+ for too long, - for too short)
+        scoreBoard[userPlace] = scoreBoard[userPlace] = (abs(sizeDiff));
+
+        //get the time left;
+        auto diff = std::chrono::high_resolution_clock::now() - getTime();
+        auto t1 = std::chrono::duration_cast<std::chrono::milliseconds>(diff);
+        std::cout << "It as been : " << t1.count();
+        int timeLeft = (GAMETIME - (t1.count()));
+        std::cout<< "TIME LEFT IS : " << timeLeft << std::endl;
+
+        std::string scores = "";
+        for (int i = 0; i < MAXLOBBYSIZE; i++) {
+            if (l_clients[i].getSock() != 0) {
+                scores += (l_clients[i].getName() + " " + std::to_string(scoreBoard[i]));
+                scores += ", ";
+            }
+        }
+        //create string with user places, and time left;
+        toSend = "Time left is: " + std::to_string(timeLeft) + "ms. Scores so far are : " + scores + "\n";
+
+        return toSend;
+
+
     }
 
     void endGame() {
@@ -336,6 +394,7 @@ public:
                 }
             }
         }
+        gameWords = {};
         inGame = false;
         sendAll("$END-GAME\n");
 

@@ -274,8 +274,15 @@ void runServer() {
                     //check if activity is for closing the socket
                     memset(&buffer[0], 0, sizeof(buffer)); // clear buffer to free the stream
                     int valread = read(sd, buffer, BUFFERSIZE); //check to see. 0 means close socket.
-                    std::string inStr = buffer; //convert to string for easy branching below.
-                    std::cout << "WE RECEIVED THE MESS : " << inStr << "  ||| with bytes of : " << valread << std::endl;
+                    inStr = ""; //convert to string for easy branching below.
+                    int k = 0;
+                    while (buffer[k] != '\n') {
+                        std::cout << "K";
+                        inStr += buffer[k];
+                        k++;
+                    }
+                    inStr += "\n";
+                    std::cout << "WE RECEIVED THE MESS : " << inStr;
 
 /*Close sock*/  if (valread == 0) {
                         //Close the socket and mark as 0 in list for reuse
@@ -294,7 +301,7 @@ void runServer() {
                     }
 
                     if (allClients[i].inGame) {
-                        toSend = "YOU ARE IN A GAME! FOCUS\n";
+                        toSend = listOfLobbies[allClients[i].getLobbyIndex()].addToScoreandReturnplaces(inStr, allClients[i]);
                         send(sd, toSend.data(), toSend.length(), 0);
                     } else {
 
