@@ -74,6 +74,8 @@ void Client::tick() {
                 wordCount++; //increment;
             } else if (theLine.at(0) == '$') { //END GAME
                 inGame = false;
+                printf ( "%c[2J", ASCII_ESC ); //Clear the screen
+                printf ( "%c[H", ASCII_ESC );
                 cout << "GAME has ended!!!! Congrats!\n"; //TODO : format this
                 gameWords = {}; //empty vector
                 wordCount = 0;
