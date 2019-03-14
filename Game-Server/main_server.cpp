@@ -273,22 +273,17 @@ void runServer() {
                     std::cout << "ACTIVITY ON socket location : " << i << std::endl;
 //TODO: Here you can decide what to do with incoming data.
                     //check if activity is for closing the socket
-                    memset(&buffer[0], 0, sizeof(buffer)); // clear buffer to free the stream
+//                    memset(&buffer[0], 0, sizeof(buffer)); // clear buffer to free the stream
                     int valread = read(sd, buffer, BUFFERSIZE); //check to see. 0 means close socket.
-                    if (valread == 1) {
-                        std::cout << "UHOH! did not recieve it right....";
-                        inStr = "XX\n";
-                    } else {
-                        inStr = ""; //convert to string for easy branching below.
-                        int k = 0;
-                        while (buffer[k] != '\n') {
-                            std::cout << "K";
-                            inStr += buffer[k];
-                            k++;
-                        }
-                        inStr += "\n";
-                        std::cout << "WE RECEIVED THE MESS : " << inStr << valread;
+                    inStr = ""; //convert to string for easy branching below.
+                    int k = 0;
+                    while (buffer[k] != '\n') {
+                        std::cout << "K";
+                        inStr += buffer[k];
+                        k++;
                     }
+                    inStr += "\n";
+                    std::cout << "WE RECEIVED THE MESS : " << inStr << valread;
 
 /*Close sock*/  if (valread == 0) {
                         //Close the socket and mark as 0 in list for reuse
@@ -470,11 +465,7 @@ void runServer() {
                                             send(sd, toSend.data(), toSend.length(), 0); //report error
                                         }
                                     } else {
-                                        toSend =
-                                                "You must be the leader to start the game. The leader is " +
-                                                groupLeader +
-                                                "\n";
-                                        ".\n";
+                                        toSend = "You must be the leader to start the game. The leader is " + groupLeader + "\n";
                                         send(sd, toSend.data(), toSend.length(), 0); //send the result to user.
                                         std::cout << "User wanted to start game but was not leader\n";
                                     }

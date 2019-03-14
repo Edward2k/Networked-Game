@@ -4,7 +4,7 @@
 
 #ifndef CHATSERVER_SERVERFUNCTIONALITY_H
 #define CHATSERVER_SERVERFUNCTIONALITY_H
-#endif CHATSERVER_SERVERFUNCTIONALITY_H
+#endif //CHATSERVER_SERVERFUNCTIONALITY_H
 
 #include <stdio.h>
 #include <string.h>   //strlen
@@ -23,11 +23,11 @@
 #include <cmath>
 
 #define PORT 7070
-#define BUFFERSIZE 16384 //16kb //TODO : Use circular buffer
+#define BUFFERSIZE 2048 //4kb //TODO : Use circular buffer
 #define MAXCLIENTS 10
 #define MAXLOBBYSIZE 5
 #define MAXLOBBIES 4
-#define GAMETIME 2000000 //miliseconds //20000 SET
+#define GAMETIME 20000 //miliseconds //20000 SET
 #define WORDSPERVECTOR 20
 
 struct sockaddr_in address; //struct for machine readable address.
@@ -341,6 +341,7 @@ public:
     }
 
     std::string addToScoreandReturnplaces(std::string userIn, client user) {
+        std::cout << "SCORING!\n";
         std::string result, wordAgainst, toSend;
         int userPlace;
         //get users number
@@ -351,11 +352,15 @@ public:
 //            wordLength = wordLength * 10;
 //            wordLength += (a - 48); //get int value, not char value
 //
-        while (userIn.at(userIn.length() - k) > 47 && userIn.at(userIn.length()- k) < 58) { //48-57
+//TODO : fix this
+
+        while (userIn.at(userIn.length() - k) > 47 && userIn.at(userIn.length() - k) < 58) { //48-57
             theNum = theNum * 10; //shift decimal left
             theNum += (userIn.at(userIn.length() - k) - 48); //get int value
             k++; //increase counter
         }
+        std::cout << "SCORING!\n";
+
         std::cout << "Number of vec is : " << theNum << std::endl;
         int wordSubmit = theNum; //penultimate char gives word to submit
         if (wordSubmit <= 0 || wordSubmit > WORDSPERVECTOR) {
