@@ -37,6 +37,8 @@ iostream
 -
 sstream
 -
+vector
+-
 
 /Users/eduardolira/Desktop/GAME/Game-Client/Client.h
 pthread.h

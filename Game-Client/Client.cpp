@@ -8,6 +8,7 @@
 #include <string>
 #include <iostream>
 #include <sstream>
+#include <vector>
 #define BUFSIZE 1024 //1024 bytes buffer for response stream (1 byte/char)
 using namespace std;
 
@@ -19,9 +20,32 @@ char response[BUFSIZE]; //Variable for response using Buffer size declared at he
 int recLength; //Holds amount of data sent. used in !who.
 string userInput;
 
+bool inGame = false;
+vector<string> gameWords;
+int wordCount; //counts what word we are on.
 
 struct addrinfo hints, *infoptr; //must be global. Declare struct
 //https://www.youtube.com/watch?v=NIqYwXcUdn0
+
+
+
+vector<string> VectorizeStringWords(string theWords) {
+    string word;
+    vector<string> result;
+
+    for (int i = 0; i < theWords.length()-1; i++) { //exclude \n
+        if (theWords.at(i) == ',') {
+            i++;
+            result.push_back(word);
+            word = ""; //empty
+        } else {
+            word += theWords.at(i);
+        }
+    }
+    return result;
+}
+
+
 void Client::tick() {
 
     string theLine;
@@ -38,36 +62,63 @@ void Client::tick() {
     }
 
     if (socketBuffer.hasLine()) {
-        printf ( "%c[32m", ASCII_ESC );
+        printf("%c[32m", ASCII_ESC);
         theLine = socketBuffer.readLine();
-//cout << "We recieved : " << theLine << endl;
-        if (theLine[0] == 'W' && theLine[1] == 'H') { //for WHO-OK
-            int numUsers = 0; //holds number of users.
-            int recLength = theLine.size() + 1;
-            cout << "[SYSTEM] The users currently logged in are: " << endl << "\t[" << numUsers << "]";
-            for (int i = 7; i < recLength && theLine[i] != '\0'; i++) { //start from first name
-                if (theLine[i] == 44) { //44 is ASCII for ','
-                    numUsers++;
-                    cout << endl << "\t[" << numUsers << ']'; // end with newline and tab
-                } else {
-                    cout << theLine[i];
-                }
-            }
-            cout << endl;
-        } else if (theLine[0] == 'D') { //for delivery //Make this neater
-            printf ( "%c[35m", ASCII_ESC ); //Send in green
-            cout << theLine;
+        //cout << "We recieved : " << theLine << endl;
 
-        } else if (theLine[0] == 'S') { //for AKN on send ('SEND-OK')
-            cout << theLine;
-        } else if (theLine[0] == 'U') {
-            cout << "The user is not currently logged in. Try again later." << endl;
+        if (inGame) {
+            if (theLine.at(theLine.length() - 2) == '$') { // if we have the special symbol at end
+                gameWords = VectorizeStringWords(theLine); //Create into a vector
+                cout << "VECTORIZED" << endl;
+                cout << "WORD: \t\t" << gameWords[wordCount] << endl; //print next game word
+                wordCount++; //increment;
+            } else if (theLine.at(0) == '$') { //END GAME
+                inGame = false;
+                cout << "GAME has ended!!!! Congrats!\n"; //TODO : format this
+                gameWords = {}; //empty vector
+                wordCount = 0;
+            } else {
+                cout << "[SERVER] : " << theLine << "NEXT WORD : ";
+                cout <<  "WORD: \t\t" << gameWords[wordCount] << endl; //print next game word
+                wordCount++; //increment;
+            }
+
         } else {
-            cout << "\a[SERVER] : " << theLine;
+            if (theLine[0] == 'W' && theLine[1] == 'H') { //for WHO-OK
+                int numUsers = 0; //holds number of users.
+                int recLength = theLine.size() + 1;
+                cout << "[SYSTEM] The users currently logged in are: " << endl << "\t[" << numUsers << "]";
+                for (int i = 7; i < recLength && theLine[i] != '\0'; i++) { //start from first name
+                    if (theLine[i] == 44) { //44 is ASCII for ','
+                        numUsers++;
+                        cout << endl << "\t[" << numUsers << ']'; // end with newline and tab
+                    } else {
+                        cout << theLine[i];
+                    }
+                }
+                cout << endl;
+            } else if (theLine[0] == 'D') { //for delivery //Make this neater
+                printf("%c[35m", ASCII_ESC); //Send in green
+                cout << theLine;
+
+            } else if (theLine[0] == 'S') { //for AKN on send ('SEND-OK')
+                cout << theLine;
+            } else if (theLine[0] == 'U') {
+                cout << "The user is not currently logged in. Try again later." << endl;
+            } else if (theLine == "GAME-START\n") {
+                inGame = true;
+                printf ( "%c[2J", ASCII_ESC ); //Clear the screen
+                printf ( "%c[H", ASCII_ESC );
+                cout << "THE GAME IS NOW STARTING!\n";
+
+            } else {
+                cout << "\a[SERVER] : " << theLine;
+            }
         }
-        printf ( "%c[m", ASCII_ESC ); //remove bold. (turn off character attributes)
+        printf("%c[m", ASCII_ESC); //remove bold. (turn off character attributes)
     }
 }
+
 
 int Client::readFromStdin() {
     int start;
@@ -78,9 +129,11 @@ int Client::readFromStdin() {
     printf ( "%c[2K", ASCII_ESC ); //Clear the entire line
     printf ( "%c[1m", ASCII_ESC ); // print in bold
 
-//    puts ( "\033[<n>A" );
-    cout << "\b[YOU] : " << userInput << endl; //TODO : find way to fix last input to put [you] before
-
+    if (inGame == false) {
+        cout << "\b[YOU] : " << userInput << endl; //TODO : find way to fix last input to put [you] before
+    } else {
+        cout << "\b[YOUR RESPONSE] : " << userInput << endl;
+    }
     printf ( "%c[m", ASCII_ESC ); //remove bold. (turn off character attributes)
 
     if (userInput != "!quit") {

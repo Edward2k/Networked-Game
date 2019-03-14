@@ -305,7 +305,7 @@ public:
         inGame = true; //In game
         gameTimeStart = std::chrono::high_resolution_clock::now(); //TIME STAMPED
         std::string gameWords = stringifyVectorOfStrings(wordGenerator(a)); //get random words and stringify
-        gameWords += "\n";
+        gameWords += "$\n";
         std::cout << "The GAMEWORDS are : " << gameWords << "\n";
         for (int i = 0; i < MAXLOBBYSIZE; i++) {
             if (l_clients[i].getSock() != 0) {
@@ -337,7 +337,7 @@ public:
             }
         }
         inGame = false;
-        sendAll("END-GAME\n");
+        sendAll("$END-GAME\n");
 
     };
 

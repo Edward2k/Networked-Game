@@ -250,8 +250,6 @@ void runServer() {
                 }
             }
         }
-
-
         /*--------------------------------------------------------------------------------------------
          * if and only if something happens on the master socket, that means there is activity
          * We must connect and login.
