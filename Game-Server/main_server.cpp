@@ -247,7 +247,11 @@ void runServer() {
                 std::cout << "Lobby has been in game for : " << t1.count() << std::endl;
                 if (t1.count() > GAMETIME) { //if time is over tie
                     std::cout << "GAME HAS EXPIRED\n.";
-                    listOfLobbies[i].endGame();
+                    for (int k = 0; k < MAXCLIENTS; k++) {
+                        if (allClients[k].getLobbyIndex() == i) {
+                            listOfLobbies[i].endGame(allClients[k]);
+                        }
+                    }
                 }
             }
         }
@@ -389,7 +393,7 @@ void runServer() {
 /*quit lbby*/       } else if (inStr.at(1) == 'q') {
                                 if (allClients[i].isInLobby()) {
                                     int theLobby = allClients[i].getLobbyIndex();
-                                    allClients[i].exitLobby(); //user must exit the lobby
+                                    allClients[i].exitLobby(); //user must exit the lobby/////////////////////////
                                     int a = listOfLobbies[theLobby].exitLobby(allClients[i]); //exit the lobby
                                     if (a == 0) { //lobby was empty and erased, decrement counter
                                         lobbiesUsed--;

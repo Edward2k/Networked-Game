@@ -349,11 +349,6 @@ public:
         int k = 2;
         int theNum = 0; //number in vector
 
-//        if (a > 47 && a < 58) {//48 - 57
-//            wordLength = wordLength * 10;
-//            wordLength += (a - 48); //get int value, not char value
-//
-//TODO : fix this
 
         for(int i = 0; i < userIn.length() - 1; i++){ // itterate userIn till it finds end of actual userWord
             if (userIn.at(i) > 47 && userIn.at(i) < 58 ) {//is num?
@@ -365,11 +360,6 @@ public:
         }
         //
 
-//        while (userIn.at(userIn.length() - k) > 47 && userIn.at(userIn.length() - k) < 58) { //48-57
-//            theNum = theNum * 10; //shift decimal left
-//            theNum += (userIn.at(userIn.length() - k) - 48); //get int value
-//            k++; //increase counter
-//        }
         std::cout << "SCORING!\n";
 
         std::cout << "Number of vec is : " << theNum << std::endl;
@@ -432,7 +422,7 @@ public:
 
     }
 
-    void endGame() {
+    void endGame(client user) {
         for (int i = 0; i < MAXLOBBYSIZE; i++) {
             if (l_clients[i].getSock() != 0) {
                 for (int k = 0; k < MAXCLIENTS; k++) {
@@ -446,6 +436,15 @@ public:
         gameWords = {};
         inGame = false;
         sendAll("$END-GAME\n");
+
+        toSend = "FINAL SCORE IS : ";
+        for(int i = 0; i < MAXLOBBYSIZE; i++){
+            if(l_clients[i].getSock() != 0){
+                toSend+= l_clients[i].getName() + " [" + std::to_string(scoreBoard[i]) + "], ";
+            }
+        }
+        toSend += "\n";
+        send(user.getSock(), toSend.data(), toSend.length(), 0);
 
     };
 
