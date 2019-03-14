@@ -28,7 +28,7 @@
 #define MAXLOBBYSIZE 5
 #define MAXLOBBIES 4
 #define GAMETIME 20000 //miliseconds //20000 SET
-#define WORDSPERVECTOR 20
+#define WORDSPERVECTOR 40
 
 struct sockaddr_in address; //struct for machine readable address.
 fd_set readfds; //set of socket descriptors.
@@ -298,6 +298,7 @@ public:
     }
 
     //SENDS everyone a message
+    //TODO : FIX THIS
     int sendAll(std::string message) {
         for (int i = 0; i < MAXLOBBYSIZE; i++) {
             if (l_clients[i].getSock() != 0) {
@@ -346,7 +347,7 @@ public:
         int userPlace;
         //get users number
         int k = 2;
-        int theNum = 0;
+        int theNum = 0; //number in vector
 
 //        if (a > 47 && a < 58) {//48 - 57
 //            wordLength = wordLength * 10;
@@ -354,11 +355,21 @@ public:
 //
 //TODO : fix this
 
-        while (userIn.at(userIn.length() - k) > 47 && userIn.at(userIn.length() - k) < 58) { //48-57
-            theNum = theNum * 10; //shift decimal left
-            theNum += (userIn.at(userIn.length() - k) - 48); //get int value
-            k++; //increase counter
+        for(int i = 0; i < userIn.length() - 1; i++){ // itterate userIn till it finds end of actual userWord
+            if (userIn.at(i) > 47 && userIn.at(i) < 58 ) {//is num?
+                theNum = theNum * 10;
+                theNum += (userIn.at(i) - 48); //get int value, not char value
+                } else {
+                //Nothing;
+            }
         }
+        //
+
+//        while (userIn.at(userIn.length() - k) > 47 && userIn.at(userIn.length() - k) < 58) { //48-57
+//            theNum = theNum * 10; //shift decimal left
+//            theNum += (userIn.at(userIn.length() - k) - 48); //get int value
+//            k++; //increase counter
+//        }
         std::cout << "SCORING!\n";
 
         std::cout << "Number of vec is : " << theNum << std::endl;
@@ -379,9 +390,13 @@ public:
                 break;
             }
         }
+        std::cout << "USER PLACE IS : " << userPlace << std::endl;
         std::cout << "SCORE BEFORE : " << scoreBoard[userPlace] << std::endl;
         //score the response
-        for (int i = 0; i < wordAgainst.length()-1; i++) {
+
+        //if(wordAgainst.length()  - 2 <= )
+        //Placing in score board
+        for (int i = 0; i < result.length() && i < wordAgainst.length(); i++) {
             if (result.at(i) == wordAgainst.at(i)) {
                 scoreBoard[userPlace] += 5;
             } else {

@@ -277,6 +277,7 @@ void runServer() {
                     int valread = read(sd, buffer, BUFFERSIZE); //check to see. 0 means close socket.
                     inStr = ""; //convert to string for easy branching below.
                     int k = 0;
+                    //convert to string.
                     while (buffer[k] != '\n') {
                         std::cout << "K";
                         inStr += buffer[k];

@@ -159,7 +159,7 @@
       <change beforePath="$PROJECT_DIR$/../ChatServer/cmake-build-debug/cmake_install.cmake" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChatServer/main.cpp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Game-Server/ServerFunctionality.h" beforeDir="false" afterPath="$PROJECT_DIR$/Game-Server/ServerFunctionality.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game-Server/main_server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Game-Server/main_server.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERVER.dir/Game-Server/main_server.cpp.o" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../MidtermExam180227.pdf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../MidtermExamSolutions180227.pdf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../MidtermSolutions170228.pdf" beforeDir="false" />
@@ -440,10 +440,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Game-Client/Client.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1865">
+            <state relative-caret-position="545">
               <caret line="145" column="20" selection-start-line="145" selection-start-column="20" selection-end-line="145" selection-end-column="20" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
@@ -464,8 +464,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Game-Server/main_server.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3049">
-              <caret line="467" column="123" selection-start-line="467" selection-start-column="123" selection-end-line="467" selection-end-column="123" />
+            <state relative-caret-position="36">
+              <caret line="304" selection-start-line="304" selection-end-line="304" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -473,11 +473,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Game-Server/ServerFunctionality.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="368" column="46" lean-forward="true" selection-start-line="368" selection-start-column="46" selection-end-line="368" selection-end-column="46" />
+            <state relative-caret-position="122">
+              <caret line="399" column="46" selection-start-line="399" selection-start-column="46" selection-end-line="399" selection-end-column="46" />
               <folding>
                 <element signature="e#172#190#0" expanded="true" />
               </folding>
@@ -549,6 +549,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -603,12 +604,12 @@
       <workItem from="1551956952510" duration="599000" />
       <workItem from="1552493367559" duration="348000" />
       <workItem from="1552494166361" duration="4596000" />
-      <workItem from="1552553609133" duration="7242000" />
+      <workItem from="1552553609133" duration="10571000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65676000" />
+    <option name="totallyTimeSpent" value="69005000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -688,9 +689,9 @@
           <option name="timeStamp" value="55" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/Game-Server/main_server.cpp</url>
-          <line>286</line>
-          <option name="timeStamp" value="68" />
+          <url>file://$PROJECT_DIR$/Game-Server/ServerFunctionality.h</url>
+          <line>397</line>
+          <option name="timeStamp" value="71" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -845,10 +846,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Game-Client/Client.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="545">
+          <caret line="145" column="20" selection-start-line="145" selection-start-column="20" selection-end-line="145" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Game-Server/main_server.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3049">
-          <caret line="467" column="123" selection-start-line="467" selection-start-column="123" selection-end-line="467" selection-end-column="123" />
+        <state relative-caret-position="36">
+          <caret line="304" selection-start-line="304" selection-end-line="304" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -857,20 +868,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Game-Server/ServerFunctionality.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="368" column="46" lean-forward="true" selection-start-line="368" selection-start-column="46" selection-end-line="368" selection-end-column="46" />
+        <state relative-caret-position="122">
+          <caret line="399" column="46" selection-start-line="399" selection-start-column="46" selection-end-line="399" selection-end-column="46" />
           <folding>
             <element signature="e#172#190#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Game-Client/Client.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1865">
-          <caret line="145" column="20" selection-start-line="145" selection-start-column="20" selection-end-line="145" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
