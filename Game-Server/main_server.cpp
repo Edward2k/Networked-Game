@@ -247,9 +247,10 @@ void runServer() {
                 std::cout << "Lobby has been in game for : " << t1.count() << std::endl;
                 if (t1.count() > GAMETIME) { //if time is over tie
                     std::cout << "GAME HAS EXPIRED\n.";
+                    listOfLobbies[i].endGame();
                     for (int k = 0; k < MAXCLIENTS; k++) {
                         if (allClients[k].getLobbyIndex() == i) {
-                            listOfLobbies[i].endGame(allClients[k]);
+                            listOfLobbies[i].scoreGame(allClients[k]);
                         }
                     }
                 }

@@ -422,7 +422,7 @@ public:
 
     }
 
-    void endGame(client user) {
+    void endGame() {
         for (int i = 0; i < MAXLOBBYSIZE; i++) {
             if (l_clients[i].getSock() != 0) {
                 for (int k = 0; k < MAXCLIENTS; k++) {
@@ -436,17 +436,18 @@ public:
         gameWords = {};
         inGame = false;
         sendAll("$END-GAME\n");
+    };
 
+    void scoreGame(client user) {
         toSend = "FINAL SCORE IS : ";
-        for(int i = 0; i < MAXLOBBYSIZE; i++){
-            if(l_clients[i].getSock() != 0){
-                toSend+= l_clients[i].getName() + " [" + std::to_string(scoreBoard[i]) + "], ";
+        for (int i = 0; i < MAXLOBBYSIZE; i++) {
+            if (l_clients[i].getSock() != 0) {
+                toSend += l_clients[i].getName() + " [" + std::to_string(scoreBoard[i]) + "], ";
             }
         }
         toSend += "\n";
         send(user.getSock(), toSend.data(), toSend.length(), 0);
-
-    };
+    }
 
     void emptyLobby() {
         name = ""; //Set the lobby name
