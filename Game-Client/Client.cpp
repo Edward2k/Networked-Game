@@ -205,10 +205,12 @@ void Client::createSocketAndLogIn() {
     printf ( "%c[H", ASCII_ESC );
     printf ( "%c[32m", ASCII_ESC ); //Send in green
     cout << "Welcome to Type racing!!!!" << endl;
+    cout << "The objective of the game is to type as many words as fast as you can. Try to avoid typos and any mistakes as those seriously" <<
+        "bring down your score. To start, create a lobby, wait for some friends to join and then start the game. " << endl << "HAVE FUN!" << endl;
 
     //Get info about server
     hints.ai_family = AF_INET; // AF_INET means IPv4 only addresses
-
+    std::string ipNum, portNum = "";
     //This integer will find if it is a valid address
     //use 127.0.0.1:6969 for my server.
     int result = getaddrinfo("127.0.0.1", "7070", &hints, &infoptr);
@@ -296,9 +298,24 @@ void Client::createSocketAndLogIn() {
 
     /*____________________Chat session succefully created.________________________*/
     cout << "\a\a\a\a\a\a\a\a[SYSTEM] : Welcome to the chat server! you can exit at anytime by typing '!quit'." << endl
-         << "\t\t - Ask who is logged in using !who" << endl
-         << "\t\t - Send message in the form @<username> <message>" << endl
-         << "\t\t - Use a test-timer typing !test" << endl;
+         << "\t - Ask who is logged in using !who" << endl
+         << "\t - Send message in the form @<username> <message>" << endl
+         << "\t - Use a test-timer typing !time" << endl
+         << "\t - For lobby managment : " << endl
+         << "\t\t - To create a lobby : !clobby <name>" << endl
+         << "\t\t - To join a lobby : !jlobby <name>" << endl
+        << "\t\t - To list all open lobbies !wlobby" << endl
+        << "\t\t - To list everyone in your lobby !whlobby" << endl
+        << "\t\t - To message the lobby !mlobby <message body>" << endl;
+
+
+
+
+
+
+
+
+
     printf ( "%c[m", ASCII_ESC ); //remove bold. (turn off character attributes)
 
 
