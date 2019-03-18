@@ -157,8 +157,14 @@ int forwardMessage(int i) { //the I is the index used in the runServer Loop. Use
     //Find what socket the client needed is connected on.
     for (k = 0; k <= MAXCLIENTS; k++) {
         if (allClients[k].getName() == targetUser) {
-            toSend = "DELIVERY " + fromUser + messageBody + "\n";
-            int a = send(allClients[k].getSock(), toSend.data(), toSend.length(), 0);//Send message to the target user.
+            if(allClients[k].inGame) {
+                toSend = "The user is currently in a game. Please try again later.\n";
+                send(allClients[i].getSock(), toSend.data(), toSend.length(), 0);//Send message to the target user.
+                return 0;
+            } else {
+                toSend = "DELIVERY " + fromUser + messageBody + "\n";
+                int a = send(allClients[k].getSock(), toSend.data(), toSend.length(), 0);//Send message to the target user.
+            }
             break;
         } else if (k == MAXCLIENTS) { //if not in list, send this message.
             return -1;
