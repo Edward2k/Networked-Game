@@ -8,30 +8,6 @@
 
 ../Game-Client/Application.h
 
-/Users/eduardolira/Desktop/GAME/Game-Client/vusocket.cpp
-vusocket.h
-/Users/eduardolira/Desktop/GAME/Game-Client/vusocket.h
-iostream
--
-
-/Users/eduardolira/Desktop/GAME/Game-Client/vusocket.h
-iostream
--
-winsock2.h
--
-Ws2tcpip.h
--
-sys/socket.h
--
-arpa/inet.h
--
-netdb.h
--
-unistd.h
--
-errno.h
--
-
 /Users/eduardolira/Desktop/GAME/Game-Server/ServerFunctionality.h
 pthread.h
 -

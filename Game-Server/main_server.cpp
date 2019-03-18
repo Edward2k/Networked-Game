@@ -377,10 +377,7 @@ void runServer() {
                                             if (listOfLobbies[k].getLobbyName() == lobbyName) {
                                                 if (listOfLobbies[k].joinLobby(allClients[i])) {
                                                     allClients[i].joinLobbyIndex(k);
-                                                } else {
-                                                    toSend = "The lobby is full. Please try again later.\n";
-                                                    send(sd, toSend.data(), toSend.length(), 0); //send the data
-                                                }
+                                                };
                                                 break;
                                             }
                                             if (k == MAXLOBBIES - 1) {

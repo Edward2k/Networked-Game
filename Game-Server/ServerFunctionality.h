@@ -204,7 +204,6 @@ void startTimeReply(int i) { //Time how long it takes to reply
 
 // TODO : Create lobby class or some way to manage several people together. Use same time-Stamping
 //        method to find the time.
-// TODO : Ask if we need multiple lobbies.
 
 class lobbies {
 private:
@@ -264,6 +263,14 @@ public:
     bool joinLobby(client addClient) {
         if (!spaceToJoin()) {
             std::cout << "There is no space" <<std::endl;
+            toSend = "The lobby '" + name + "' is full. Please try again later.\n";
+            send(addClient.getSock(), toSend.data(), toSend.length(), 0); //send welcome message
+            return false;
+        }
+        if (inGame) {
+            std::cout << "Client tried to join lobby but lobby is in game" <<std::endl;
+            toSend = "The lobby '" + name + "' is currently in the middle of a game. Please try again later.\n";
+            send(addClient.getSock(), toSend.data(), toSend.length(), 0); //send welcome message
             return false;
         }
         for (int i = 0; i < MAXLOBBYSIZE; i++) {
@@ -295,25 +302,33 @@ public:
 
     //Sends everyone but sender message
     int sendMessage(int send_client, std::string toSend) {
-        for (int i = 0; i < MAXLOBBYSIZE; i++) {
-            if (l_clients[i].getSock() != send_client && l_clients[i].getSock() != 0) {
-                std::cout<< "Sent the message to lobby\n";
-                int a = send(l_clients[i].getSock(), toSend.data(), toSend.length(), 0);
-                std::cout << "Sent byte count of : " << a << std::endl;
+        if (!inGame) {
+            for (int i = 0; i < MAXLOBBYSIZE; i++) {
+                if (l_clients[i].getSock() != send_client && l_clients[i].getSock() != 0) {
+                    std::cout << "Sent the message to lobby\n";
+                    int a = send(l_clients[i].getSock(), toSend.data(), toSend.length(), 0);
+                    std::cout << "Sent byte count of : " << a << std::endl;
+                }
             }
+            return 0; //success
+        } else {
+            return -1;
         }
-        return 0; //success
     }
 
     //SENDS everyone a message
-    //TODO : FIX THIS
     int sendAll(std::string message) {
-        for (int i = 0; i < MAXLOBBYSIZE; i++) {
-            if (l_clients[i].getSock() != 0) {
-                std::cout<< "Sent the string to lobby\n";
-                int a = send(l_clients[i].getSock(), message.data(), message.length(), 0);
-                std::cout << "Sent byte count of : " << a << std::endl;
+        if (!inGame) {
+            for (int i = 0; i < MAXLOBBYSIZE; i++) {
+                if (l_clients[i].getSock() != 0) {
+                    std::cout << "Sent the string to lobby\n";
+                    int a = send(l_clients[i].getSock(), message.data(), message.length(), 0);
+                    std::cout << "Sent byte count of : " << a << std::endl;
+                }
             }
+            return 0;
+        } else {
+            return  -1;
         }
     }
 
@@ -325,7 +340,6 @@ public:
     void beginGame(int a) {
         gameWordSize = a;
         std::cout << "The game for lobby " + name + " is beggining.." << std::endl;
-        inGame = true; //In game
         gameTimeStart = std::chrono::high_resolution_clock::now(); //TIME STAMPED
         gameWords = wordGenerator(a);
         std::string Words = stringifyVectorOfStrings(gameWords); //get random words and stringify
@@ -347,6 +361,7 @@ public:
         sendAll(toSend);
         //Immediately after send everyone the game list
         sendAll(Words);
+        inGame = true; //In game
     }
 
     std::string addToScoreandReturnplaces(std::string userIn, client user) {
@@ -455,6 +470,8 @@ public:
         }
         toSend += "\n";
         send(user.getSock(), toSend.data(), toSend.length(), 0);
+        toSend = "The group leader is : " + leader.getName() + "\n";
+        send(user.getSock(), toSend.data(), toSend.length(), 0);
     }
 
     void emptyLobby() {
@@ -479,13 +496,17 @@ public:
                     l_clients[i] = emptyContainer;
                     usersInLobby--;
                     if (usersInLobby > 0) { //Look if there are any other users
-                        toSend = user.getName() + " has left the lobby.\n";
-                        sendMessage(user.getSock(), toSend);
+                        if (!inGame) {
+                            toSend = user.getName() + " has left the lobby.\n";
+                            sendMessage(user.getSock(), toSend);
+                        }
                         for (int k = 0; k < MAXLOBBYSIZE; k++) { //Look for new lobby leader
                             if (l_clients[k].getSock() != 0) {
                                 leader = l_clients[k];
-                                toSend = "You are now group leader!\n";
-                                send(leader.getSock(), toSend.data(), toSend.length(), 0);
+                                if (!inGame) {
+                                    toSend = "You are now group leader!\n";
+                                    send(leader.getSock(), toSend.data(), toSend.length(), 0);
+                                }
                                 break;
                             }
                         }
