@@ -204,22 +204,34 @@ void Client::createSocketAndLogIn() {
     printf ( "%c[2J", ASCII_ESC ); //Clear the screen
     printf ( "%c[H", ASCII_ESC );
     printf ( "%c[32m", ASCII_ESC ); //Send in green
-    cout << "Welcome to Type racing!!!!" << endl;
-    cout << "The objective of the game is to type as many words as fast as you can. Try to avoid typos and any mistakes as those seriously" <<
-        "bring down your score. To start, create a lobby, wait for some friends to join and then start the game. " << endl << "HAVE FUN!" << endl;
 
     //Get info about server
     hints.ai_family = AF_INET; // AF_INET means IPv4 only addresses
     std::string ipNum, portNum = "";
     //This integer will find if it is a valid address
     //use 127.0.0.1:6969 for my server.
-    int result = getaddrinfo("127.0.0.1", "7070", &hints, &infoptr);
+    std::string IPnum, PortNum;
+    cout << "IP : "; cin >> IPnum;
+    if (IPnum == "XXX") {
+        IPnum = "127.0.0.1";
+        PortNum = "7070";
+    } else {
+        cout << "PORT : "; cin >> PortNum;
+    }
+
+
+    int result = getaddrinfo(IPnum.data(), PortNum.data(), &hints, &infoptr);
 
     //if result is anything but 0 (success), print the error.
     if (result) {
         fprintf(stderr, "getaddrinfo: %s\n", gai_strerror(result));
         exit(1);
     }
+
+    cout << "Welcome to Type racing!!!!" << endl;
+    cout << "The objective of the game is to type as many words as fast as you can. Try to avoid typos and any mistakes as those seriously" <<
+         "bring down your score. To start, create a lobby, wait for some friends to join and then start the game. " << endl << "HAVE FUN!" << endl;
+
     struct addrinfo *p;
     char host[256];
 
