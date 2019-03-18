@@ -495,6 +495,7 @@ public:
                     break;
                 }
             }
+            scoreBoard[i] = 0;
         }
         return usersInLobby; // 0 means the lobby is empty
     }
