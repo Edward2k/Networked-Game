@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/SERVER.dir/Game-Server/main_server.cpp.o"
+  "CMakeFiles/SERVER.dir/Game-Client/vusocket.cpp.o"
   "SERVER.pdb"
   "SERVER"
 )

@@ -6,6 +6,14 @@
 #define CHATSERVER_SERVERFUNCTIONALITY_H
 #endif //CHATSERVER_SERVERFUNCTIONALITY_H
 
+#ifdef _WIN32
+SetConsoleMode(handle, ENABLE_VIRTUAL_TERMINAL_PROCESSING)
+#else
+#include <pthread.h>
+#endif
+
+#include "Application.h"
+
 #include <stdio.h>
 #include <string.h>   //strlen
 #include <stdlib.h>

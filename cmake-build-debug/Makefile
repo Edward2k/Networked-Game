@@ -250,6 +250,7 @@ Game-Client/vusocket.o: Game-Client/vusocket.cpp.o
 
 # target to build an object file
 Game-Client/vusocket.cpp.o:
+	$(MAKE) -f CMakeFiles/SERVER.dir/build.make CMakeFiles/SERVER.dir/Game-Client/vusocket.cpp.o
 	$(MAKE) -f CMakeFiles/CLIENT.dir/build.make CMakeFiles/CLIENT.dir/Game-Client/vusocket.cpp.o
 .PHONY : Game-Client/vusocket.cpp.o
 
@@ -259,6 +260,7 @@ Game-Client/vusocket.i: Game-Client/vusocket.cpp.i
 
 # target to preprocess a source file
 Game-Client/vusocket.cpp.i:
+	$(MAKE) -f CMakeFiles/SERVER.dir/build.make CMakeFiles/SERVER.dir/Game-Client/vusocket.cpp.i
 	$(MAKE) -f CMakeFiles/CLIENT.dir/build.make CMakeFiles/CLIENT.dir/Game-Client/vusocket.cpp.i
 .PHONY : Game-Client/vusocket.cpp.i
 
@@ -268,6 +270,7 @@ Game-Client/vusocket.s: Game-Client/vusocket.cpp.s
 
 # target to generate assembly for a file
 Game-Client/vusocket.cpp.s:
+	$(MAKE) -f CMakeFiles/SERVER.dir/build.make CMakeFiles/SERVER.dir/Game-Client/vusocket.cpp.s
 	$(MAKE) -f CMakeFiles/CLIENT.dir/build.make CMakeFiles/CLIENT.dir/Game-Client/vusocket.cpp.s
 .PHONY : Game-Client/vusocket.cpp.s
 

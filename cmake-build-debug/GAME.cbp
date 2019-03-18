@@ -152,9 +152,11 @@
 			<Option target="CLIENT"/>
 		</Unit>
 		<Unit filename="/Users/eduardolira/Desktop/GAME/Game-Client/vusocket.cpp">
+			<Option target="SERVER"/>
 			<Option target="CLIENT"/>
 		</Unit>
 		<Unit filename="/Users/eduardolira/Desktop/GAME/Game-Client/vusocket.h">
+			<Option target="SERVER"/>
 			<Option target="CLIENT"/>
 		</Unit>
 		<Unit filename="/Users/eduardolira/Desktop/GAME/Game-Server/ServerFunctionality.h">

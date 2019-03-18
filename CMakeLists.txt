@@ -24,4 +24,6 @@ add_executable(CLIENT
 
 add_executable(SERVER
         Game-Server/main_server.cpp
-        Game-Server/ServerFunctionality.h)
+        Game-Server/ServerFunctionality.h
+        Game-Client/vusocket.cpp
+        Game-Client/vusocket.h)
