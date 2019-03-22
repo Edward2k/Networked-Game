@@ -23,6 +23,10 @@ Client.h
 /Users/eduardolira/Desktop/GAME/Game-Client/Client.h
 stdio.h
 -
+ansicolor-w32.h
+/Users/eduardolira/Desktop/GAME/Game-Client/ansicolor-w32.h
+stdio.h
+-
 stdlib.h
 -
 sys/types.h

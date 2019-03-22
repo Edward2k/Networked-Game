@@ -1,5 +1,13 @@
 #include "Client.h"
 
+
+#include <stdio.h>
+#ifdef _WIN32
+#include "ansicolor-w32.h"
+#endif
+
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
@@ -271,6 +279,7 @@ void Client::createSocketAndLogIn() {
             printf ( "%c[m", ASCII_ESC ); //remove bold. (turn off character attributes)
 
             cout << "[YOU] : ";
+            cin.clear();
             getline(cin, userInput); //go up to \n (not white space)
             printf ( "%c[32m", ASCII_ESC ); //Send in green
 

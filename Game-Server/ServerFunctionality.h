@@ -35,7 +35,7 @@ SetConsoleMode(handle, ENABLE_VIRTUAL_TERMINAL_PROCESSING)
 #define MAXCLIENTS 10
 #define MAXLOBBYSIZE 5
 #define MAXLOBBIES 4
-#define GAMETIME 20000 //miliseconds //20000 SET
+#define GAMETIME 30000 //miliseconds //20000 SET
 #define WORDSPERVECTOR 40
 
 struct sockaddr_in address; //struct for machine readable address.
@@ -64,7 +64,7 @@ std::vector<std::string> wordGenerator(int wordLength){
     std::vector<std::string> wordVec;
     srand(time(0));
 
-    for(int i = 0; i <= WORDSPERVECTOR; ++i) {
+    for (int i = 0; i <= WORDSPERVECTOR; ++i) {
         for(int j = 0; j < wordLength; j++) {
             char random = rand() % 58 + 65; // all letters caps and no caps
             if (random > 90 && random < 97) { // ignore none letters between
@@ -216,6 +216,7 @@ private:
     int gameWordSize;
     int usersInLobby;
     bool inGame; //true or false
+
 public:
 
     lobbies(client masterClient, std::string lobbyName) {
@@ -377,7 +378,7 @@ public:
             if (userIn.at(i) > 47 && userIn.at(i) < 58 ) {//is num?
                 theNum = theNum * 10;
                 theNum += (userIn.at(i) - 48); //get int value, not char value
-                } else {
+            } else {
                 //Nothing;
             }
         }
@@ -427,7 +428,7 @@ public:
         auto diff = std::chrono::high_resolution_clock::now() - getTime();
         auto t1 = std::chrono::duration_cast<std::chrono::milliseconds>(diff);
         std::cout << "It as been : " << t1.count();
-        int timeLeft = (GAMETIME - (t1.count()));
+        int timeLeft = (GAMETIME - (t1.count()))/1000;
         std::cout<< "TIME LEFT IS : " << timeLeft << std::endl;
 
         std::string scores = "";
@@ -438,7 +439,7 @@ public:
             }
         }
         //create string with user places, and time left;
-        toSend = "Time left is: " + std::to_string(timeLeft) + "ms. Scores so far are : " + scores + "\n";
+        toSend = "Time left is: " + std::to_string(timeLeft) + "s. Scores so far are : " + scores + "\n";
 
         return toSend;
 
@@ -446,6 +447,7 @@ public:
     }
 
     void endGame() {
+
         for (int i = 0; i < MAXLOBBYSIZE; i++) {
             if (l_clients[i].getSock() != 0) {
                 for (int k = 0; k < MAXCLIENTS; k++) {

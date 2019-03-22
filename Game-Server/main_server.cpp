@@ -138,7 +138,8 @@ void connectAndLogin() {
     }
 }
 
-int forwardMessage(int i) { //the I is the index used in the runServer Loop. Used to index fromUsr
+int forwardMessage(int i) {
+    //the I is the index used in the runServer Loop. Used to index fromUsr
     //Message to process is stored in the buffer 'buffer'
     //SEND messages arrive in format 'SEND <targetUserByName> <messageBody>
     std::string targetUser, messageBody, fromUser;
@@ -185,7 +186,7 @@ std::string createLoggedUserString() {
         if (allClients[i].getName() == "") {
             //Do nothing, skip the empty slot.
         } else {
-            if (j == loggedInUsers-1){ // check to see if last or not (for formatting)
+            if (j == loggedInUsers - 1){ // check to see if last or not (for formatting)
                 message += allClients[i].getName(); //add last client without comma for formatting in Client side
                 break;
             } else {
@@ -207,8 +208,8 @@ void runServer() {
     while (true) {
 
         /*--------------------------------------------------------------------------------------------
-       * SET UP SERVER
-       *--------------------------------------------------------------------------------------------- */
+       * //SET UP SERVER
+       *---------------------------------------------------------------------------------------------*/
         memset(&buffer[0], 0, sizeof(buffer));
         //clear the socket set
         FD_ZERO(&readfds);
@@ -275,7 +276,8 @@ void runServer() {
         /*--------------------------------------------------------------------------------------------
         * anything else, there is some IO operation on another active socket.
         *--------------------------------------------------------------------------------------------- */
-//https://www.binarytides.com/multiple-socket-connections-fdset-select-linux/
+        //https://www.binarytides.com/multiple-socket-connections-fdset-select-linux/
+
         for (int i = 0; i < MAXCLIENTS; i++) { //iterate through the clients
             sd = allClients[i].getSock(); //check the socket
             std::string clientName = allClients[i].getName();
@@ -331,7 +333,7 @@ void runServer() {
                                     send(sd, toSend.data(), toSend.length(), 0);
                                     startTimeReply(i);
                                 }
-/*C lobby*/         } else if (inStr.at(1) == 'c') {
+/*Create lobby*/         } else if (inStr.at(1) == 'c') {
                                 if (allClients[i].isInLobby()) { //User is already in lobby
                                     toSend = "You are currently in another lobby. Please leave by typing !qlobby\n";
                                     send(sd, toSend.data(), toSend.length(), 0); //send the data
@@ -363,7 +365,7 @@ void runServer() {
                                         send(sd, toSend.data(), toSend.length(), 0);
                                     }
                                 }
-/*J lobby*/         } else if (inStr.at(1) == 'j') {
+/*Join lobby*/         } else if (inStr.at(1) == 'j') {
                                 if (allClients[i].isInLobby()) {
                                     toSend = "You are currently in another lobby. Please leave by typing !qlobby\n";
                                     send(sd, toSend.data(), toSend.length(), 0); //send the data
@@ -453,20 +455,7 @@ void runServer() {
 /*strt lobby*/      } else if (inStr.at(1) == 's') { //TODO : add start game here
                                 if (allClients[i].isInLobby()) {
                                     std::string groupLeader = listOfLobbies[allClients[i].getLobbyIndex()].whoLeader();
-                                    if (groupLeader == clientName) {
-                                        int wordLength = 0;
-                                        for (int i = 8; i < inStr.length() && inStr.at(i) != '\n'; i++) { //include \n
-                                            int a = inStr.at(i);
-                                            if (a > 47 && a < 58) {//48 - 57
-                                                wordLength = wordLength * 10;
-                                                wordLength += (a - 48); //get int value, not char value
-                                            } else {
-                                                wordLength = -1;
-                                                break;
-                                            }
-                                        }
-                                        if (wordLength > 0) {
-                                            std::cout << "Word length chosen is: " << wordLength << std::endl;
+                                    if (group  length chosen is: " << wordLength << std::endl;
                                             //Begin the game
                                             listOfLobbies[allClients[i].getLobbyIndex()].beginGame(wordLength);
                                         } else { //INVALID WORD LENGTH. SEND AGAIN.

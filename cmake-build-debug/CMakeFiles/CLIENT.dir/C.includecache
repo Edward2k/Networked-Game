@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/eduardolira/Desktop/GAME/Game-Client/ansicolor-w32.c
+windows.h
+-
+stdarg.h
+-
+stdio.h
+-
+errno.h
+-
+
